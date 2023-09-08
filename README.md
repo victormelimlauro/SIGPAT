@@ -33,7 +33,7 @@ A idéia para solucionar estes problemas é criar um sistema WEB de código aber
 
 ## Tecnologias utilizadas
 Optamos por utilizar o PHP com Banco de dados MySQL, pelo fato do PHP ser uma linguagem simples, open source, de fácil utilização, hospedagem e também porque nós temos conhecimento nela, quanto ao MySQL pelos mesmos motivos.  
-Por exemplo, basta subir um servidor Xampp em qualquer máquina e aproveitar o SIGPAT !  
+Por exemplo, basta subir um servidor Xampp/Apache em qualquer máquina e aproveitar o SIGPAT !  
 
 ## Criando o banco de Dados e Conectando ao sistema
 No arquivo **DAO/MySQL.php**  ficam os parâmetros de conexão do Banco de Dados, que devem coincidir com o hostname, login, senha e nome do banco de dados, conforme o estiver configurado no seu servidor MySQL.  
