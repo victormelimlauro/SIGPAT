@@ -12,21 +12,23 @@ Relatórios pretendidos:
 * Itens Localizados no local correto  
   SELECT a.itens, b.inventarios_registros  
   FROM itens as A  
-  INNER JOIN inventarios_registros as B  
+  INNER JOIN inventarios_registros as B
+                  on a.cod_item= b.cod_item    
   WHERE    
-  Itens.cod_local = Inventarios_registros.cod_local WNHERE cod_inventario = X  
+  Itens.cod_local = Inventarios_registros.cod_local WNHERE inventarios_registros.cod_inventario = X  
 * Itens Localizados em local divergente  
   SELECT a.itens, b.inventarios_registros  
   FROM itens as A  
   INNER JOIN inventarios_registros as B  
-  WHERE  Itens.cod_local <> Inventarios_registros.cod_local WNHERE cod_inventario = X  
+                  on a.cod_item= b.cod_item  
+  WHERE  Itens.cod_local <> Inventarios_registros.cod_local WNHERE inventarios_registros.cod_inventario = X  
 * Itens não localizados na tabela inventários registros, porém existentes no cadastro.  
   SELECT a.itens, b.inventarios_registros  
   FROM itens as A  
   INNER JOIN inventarios_registros as B  
                   on a.cod_item= b.cod_item  
     WHERE b.cod_item is null  
-    AND inventarios_registros ="COD_INVENTARIO"  
+    AND inventarios_registros.cod_inventario = X  
 
 
 ## Tecnologias utilizadas
