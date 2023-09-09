@@ -10,7 +10,7 @@ try {
 
     $caminho = dirname(__FILE__) . '/../DAO/MySQL.php';
 
-    var_dump(is_file($caminho));
+    //var_dump(is_file($caminho));
 
     include_once  dirname(__FILE__) . '/../DAO/MySQL.php';
     $mysql = new Mysql();

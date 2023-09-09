@@ -10,7 +10,7 @@ try {
 
     $total_itens = count($lista_itens);
 
-    var_dump($lista_itens);
+    //var_dump($lista_itens);
 } catch(Exception $e) {
 
     echo $e->getMessage();
@@ -40,11 +40,11 @@ try {
                         <td> <?= $lista_itens[$i]->cod_item ?> </td>
                         <td> <?= $lista_itens[$i]->nome_item ?> </td>
                         <td> 
-                            <a href="cadastrar_item.php?cod_local=<?= $lista_itens[$i]->cod_item ?>">
+                            <a href="cadastrar_item.php?cod_item=<?= $lista_itens[$i]->cod_item ?>">
                                 Editar</a> 
                         </td>
                         <td> 
-                            <a href="cadastrar_item.php?excluir=true&cod_local=<?= $lista_itens[$i]->cod_item ?>">
+                            <a href="cadastrar_item.php?excluir=true&cod_item=<?= $lista_itens[$i]->cod_item ?>">
                                 Excluir</a> 
                         </td>
                     </tr>

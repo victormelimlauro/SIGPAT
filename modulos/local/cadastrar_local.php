@@ -60,6 +60,7 @@ try {
 
     if(isset($_GET['cod_local']))
     {
+    echo"GET BY ID";
         include "../../DAO/LocalDAO.php";
 
         $local_dao = new LocalDAO();
