@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 07-Set-2023 às 23:40
+-- Tempo de geração: 09-Set-2023 às 19:48
 -- Versão do servidor: 8.0.28
 -- versão do PHP: 7.4.30
 
@@ -25,6 +25,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `inventarios`
+--
+
+CREATE TABLE `inventarios` (
+  `cod_inventario` int NOT NULL,
+  `nome_inventario` varchar(45) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `itens`
 --
 
@@ -41,12 +52,14 @@ CREATE TABLE `itens` (
 --
 
 INSERT INTO `itens` (`cod_item`, `numpat_item`, `cod_local`, `nome_item`, `preco_item`) VALUES
-(1, 55, 4, 'Cadeira', '1.00'),
+(1, 55, 1, 'Cadeira Gamer', '400.00'),
 (2, 55, 4, 'Mesa', '1.00'),
 (3, 848, 1, 'Computador', '5000.00'),
 (4, 408, 37, 'Notebook', '1500.00'),
 (5, 660, 1, 'Balança', '100.00'),
-(6, 501, 10, 'Cadeira Presidente', '500.00');
+(6, 501, 10, 'Cadeira Presidente', '500.00'),
+(7, 862, 16, 'Computador Dell', '3500.00'),
+(8, 101, 40, 'Notebook', '5000.00');
 
 -- --------------------------------------------------------
 
@@ -64,16 +77,13 @@ CREATE TABLE `locais` (
 --
 
 INSERT INTO `locais` (`cod_local`, `nome_local`) VALUES
-(35, ' Art'),
 (14, ' Compras  Deise'),
 (17, ' Compras José'),
-(15, ' Compras Marcia '),
 (18, ' Compras Victor '),
-(16, ' Contabilidade'),
+(16, ' Contabilidade  APAE'),
 (26, ' Escola'),
 (30, ' Escola Senac'),
 (37, ' Estimulação Precoce '),
-(28, ' manuela zaglia franco '),
 (1, 'Comercial'),
 (12, 'Escola'),
 (6, 'Faturamento'),
@@ -82,8 +92,8 @@ INSERT INTO `locais` (`cod_local`, `nome_local`) VALUES
 (10, 'Marketing Metrocamp'),
 (36, 'Recepçao'),
 (27, 'Recepção  Metrocamp '),
-(25, 'Serviço social'),
-(33, 'Sthefany Sarah');
+(40, 'Sala da Aline '),
+(25, 'Serviço social');
 
 -- --------------------------------------------------------
 
@@ -110,6 +120,14 @@ INSERT INTO `usuarios` (`cod_usuario`, `nome`, `username`, `senha`) VALUES
 --
 
 --
+-- Índices para tabela `inventarios`
+--
+ALTER TABLE `inventarios`
+  ADD PRIMARY KEY (`cod_inventario`),
+  ADD UNIQUE KEY `nome_inventario_UNIQUE` (`nome_inventario`),
+  ADD UNIQUE KEY `cod_inventario_UNIQUE` (`cod_inventario`);
+
+--
 -- Índices para tabela `itens`
 --
 ALTER TABLE `itens`
@@ -134,16 +152,22 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de tabela `inventarios`
+--
+ALTER TABLE `inventarios`
+  MODIFY `cod_inventario` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `itens`
 --
 ALTER TABLE `itens`
-  MODIFY `cod_item` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cod_item` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `locais`
 --
 ALTER TABLE `locais`
-  MODIFY `cod_local` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `cod_local` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
