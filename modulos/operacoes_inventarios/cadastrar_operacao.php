@@ -30,22 +30,22 @@ try {
     //Verifica se o SALVAR vindo da URL está setado para lançar alterações no BD
     {
 
-        include "../../DAO/ItemDAO.php";
+        include "../../DAO/OperacaoInventarioDAO.php";
 
-        $item_dao = new ItemDAO();
+        $OperacaoInventario_dao = new OperacaoInventarioDAO();
 
        // $nome_local = $_POST["nome_local"];
 
 
-        $dados_item = array (
-        'numpat_item' => $_POST["numpat_item"],
+        $dados_operacao_inventario = array (
+        'cod_inventario' => $_POST["cod_inventario"],
         'cod_local' => $_POST["cod_local"],
-        'nome_item' => $_POST["nome_item"],
-        'preco_item' => $_POST["preco_item"],
+        'numpat_item' => $_POST["numpat_item"],
+        'cod_usuario' => $_POST["cod_usuario"],
         );
         
-        $item_dao->insert($dados_item);
-        var_dump($dados_item);
+        var_dump($dados_operacao_inventario);
+        $OperacaoInventario_dao->insert($dados_operacao_inventario);
            echo"Inserido";
 
        }
@@ -103,10 +103,10 @@ try {
 
         <main>
 
-            <form method="post" action="cadastrar_item.php?salvar=true"> 
-            <label> Local:
-                <select name="cod_local">
-                    <option>Selecione o local</option>
+            <form method="post" action="cadastrar_operacao.php?salvar=true"> 
+            <label> Inventario:
+                <select name="cod_inventario">
+                    <option>Selecione o Inventario</option>
 
                     <?php for($i=0; $i<$total_inventarios; $i++): 
 
@@ -149,7 +149,12 @@ try {
             <label> Número de patrimônio do Item:
                         <input name="numpat_item" type="text"  value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>" />
             </label>
-
+            <label> Usuário responsavél - Codigo
+                        <input name="cod_usuario" type="text" readonly  value="<?= $dados_do_usuario->cod_usuario ?>" />
+            </label>
+            <label> Usuário responsavél - Nome / username
+                        <input name="nome_usuario" type="text" readonly  value="<?= $dados_do_usuario->nome ?> / <?= $dados_do_usuario->username ?> " />
+            </label>
             <button type="submit"> Salvar </button>
 
             </form>
