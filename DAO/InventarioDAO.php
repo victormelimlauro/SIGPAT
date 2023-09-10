@@ -34,21 +34,14 @@ class InventarioDAO {
     }
 
     public function insert($dados_inventario) {
-
-        $sql = "INSERT INTO inventarios (nome_inventario) VALUES (?)";
-
+        $sql = "INSERT INTO inventario (nome_inventario) VALUES (?)";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $dados_inventario['nome_inventario']);
         $stmt->execute();
     }
 
-    public function update($dados_inventario) {
-
-        $sql = "UPDATE inventarios SET nome_inventario = ? WHERE cod_inventario = ?";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $dados_inventario['nome_inventario']);
-        $stmt->bindValue(2, $dados_inventario['cod_inventario']);
+    public function getAllRows() {
+        $stmt = $this->conexao->prepare("SELECT * FROM inventario");
         $stmt->execute();
     }
 

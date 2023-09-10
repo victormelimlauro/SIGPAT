@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 09-Set-2023 às 19:48
+-- Tempo de geração: 10-Set-2023 às 04:06
 -- Versão do servidor: 8.0.28
 -- versão do PHP: 7.4.30
 
@@ -33,6 +33,15 @@ CREATE TABLE `inventarios` (
   `nome_inventario` varchar(45) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Extraindo dados da tabela `inventarios`
+--
+
+INSERT INTO `inventarios` (`cod_inventario`, `nome_inventario`) VALUES
+(3, 'Teste gui'),
+(2, 'TESTE juam'),
+(1, 'TESTE VITAO');
+
 -- --------------------------------------------------------
 
 --
@@ -52,14 +61,15 @@ CREATE TABLE `itens` (
 --
 
 INSERT INTO `itens` (`cod_item`, `numpat_item`, `cod_local`, `nome_item`, `preco_item`) VALUES
-(1, 55, 1, 'Cadeira Gamer', '400.00'),
-(2, 55, 4, 'Mesa', '1.00'),
+(1, 55, 37, 'Cadeira Gamer v2', '400.00'),
 (3, 848, 1, 'Computador', '5000.00'),
 (4, 408, 37, 'Notebook', '1500.00'),
 (5, 660, 1, 'Balança', '100.00'),
 (6, 501, 10, 'Cadeira Presidente', '500.00'),
 (7, 862, 16, 'Computador Dell', '3500.00'),
-(8, 101, 40, 'Notebook', '5000.00');
+(8, 101, 40, 'Notebook', '5000.00'),
+(11, 555, 1, 'Computador Aple', '5000.00'),
+(12, 555, 1, 'Cadeira do vovo', '19.00');
 
 -- --------------------------------------------------------
 
@@ -84,7 +94,9 @@ INSERT INTO `locais` (`cod_local`, `nome_local`) VALUES
 (26, ' Escola'),
 (30, ' Escola Senac'),
 (37, ' Estimulação Precoce '),
-(1, 'Comercial'),
+(41, ' Telemarketing'),
+(42, ' Teste vitaoooo'),
+(1, 'Comercial Vendas '),
 (12, 'Escola'),
 (6, 'Faturamento'),
 (4, 'Financeiro     '),
@@ -94,6 +106,29 @@ INSERT INTO `locais` (`cod_local`, `nome_local`) VALUES
 (27, 'Recepção  Metrocamp '),
 (40, 'Sala da Aline '),
 (25, 'Serviço social');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `operacoes_inventarios`
+--
+
+CREATE TABLE `operacoes_inventarios` (
+  `cod_operacoes_inventarios` int NOT NULL,
+  `cod_local` int NOT NULL,
+  `cod_inventario` int NOT NULL,
+  `numpat_item` int NOT NULL,
+  `cod_usuario` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `operacoes_inventarios`
+--
+
+INSERT INTO `operacoes_inventarios` (`cod_operacoes_inventarios`, `cod_local`, `cod_inventario`, `numpat_item`, `cod_usuario`) VALUES
+(1, 4, 1, 50, 1),
+(2, 4, 1, 50, 1),
+(3, 40, 2, 55, 1);
 
 -- --------------------------------------------------------
 
@@ -142,6 +177,12 @@ ALTER TABLE `locais`
   ADD UNIQUE KEY `nome_local_UNIQUE` (`nome_local`);
 
 --
+-- Índices para tabela `operacoes_inventarios`
+--
+ALTER TABLE `operacoes_inventarios`
+  ADD PRIMARY KEY (`cod_operacoes_inventarios`);
+
+--
 -- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -155,19 +196,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `inventarios`
 --
 ALTER TABLE `inventarios`
-  MODIFY `cod_inventario` int NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_inventario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `itens`
 --
 ALTER TABLE `itens`
-  MODIFY `cod_item` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cod_item` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `locais`
 --
 ALTER TABLE `locais`
-  MODIFY `cod_local` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `cod_local` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT de tabela `operacoes_inventarios`
+--
+ALTER TABLE `operacoes_inventarios`
+  MODIFY `cod_operacoes_inventarios` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

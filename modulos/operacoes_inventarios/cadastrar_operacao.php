@@ -19,44 +19,43 @@ try {
 
     $total_locais = count($lista_locais);
 
+    /**
+     * Obtendo os inventários
+     */
+    include "../../DAO/InventarioDAO.php";
+
+    $inventario_dao = new InventarioDAO();
+
+    $lista_inventarios = $inventario_dao->getAllRows();
+
+    $total_inventarios = count($lista_inventarios);
+
 
     if(isset($_GET['salvar']))
     //Verifica se o SALVAR vindo da URL está setado para lançar alterações no BD
     {
 
-        include "../../DAO/ItemDAO.php";
+        include "../../DAO/OperacaoInventarioDAO.php";
 
-        $item_dao = new ItemDAO();
+        $OperacaoInventario_dao = new OperacaoInventarioDAO();
 
        // $nome_local = $_POST["nome_local"];
 
 
-        $dados_item = array (
-        'numpat_item' => $_POST["numpat_item"],
+        $dados_operacao_inventario = array (
+        'cod_inventario' => $_POST["cod_inventario"],
         'cod_local' => $_POST["cod_local"],
-        'nome_item' => $_POST["nome_item"],
-        'preco_item' => $_POST["preco_item"],
+        'numpat_item' => $_POST["numpat_item"],
+        'cod_usuario' => $_POST["cod_usuario"],
         );
-
-       if(!empty($_POST['cod_item']))  {
-        // Verifica se está setado via POST vindo do formulário o valor COD_LOCAL para realizar UPDADE ou INSERT 
-
-            $dados_item['cod_item'] = $_POST["cod_item"];
-
-            $item_dao ->update($dados_item);
-
-            echo"Atualizado";
-            var_dump($_POST);
-            //header("Location: listar_locais.php");
-       } else {
         
-        $item_dao->insert($dados_item);
-        var_dump($dados_item);
+        var_dump($dados_operacao_inventario);
+        $OperacaoInventario_dao->insert($dados_operacao_inventario);
            echo"Inserido";
 
        }
 
-    }
+    
        
     if(isset($_GET['excluir']))
     {
@@ -86,7 +85,7 @@ try {
     }
 
 
-    
+
 
 } catch(Exception $e) {
 
@@ -109,21 +108,28 @@ try {
 
         <main>
 
-            <form method="post" action="cadastrar_item.php?salvar=true"> 
-            <label> Código do item:
-                        <input name="cod_item" value="<?= isset($dados_item) ? $dados_item->cod_item : NULL ?>" type="text" readonly/>
-                    </label>
-            <label> Número de patrimônio do Item:
-                        <input name="numpat_item" type="number"  value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>" />
-                    </label>
-            <label>Nome do item:
-                <input name="nome_item" type="text" value="<?= isset($dados_item) ? $dados_item->nome_item : NULL ?>"/>
-            </label>
+            <form method="post" action="cadastrar_operacao.php?salvar=true"> 
+            <label> Inventario:
+                <select name="cod_inventario">
+                    <option>Selecione o Inventario</option>
 
-            <label>Preço:
-                <input name="preco_item" type="number" value="<?= isset($dados_item) ? $dados_item->preco_item : NULL ?>"/>
-            </label>
+                    <?php for($i=0; $i<$total_inventarios; $i++): 
 
+                        $selecionado = " ";
+
+                        if(isset($dados_item->cod_inventario))
+                        {
+                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_item->cod_inventario) ? "selected" : "";
+                        }
+
+                        ?>
+                    <option value="<?= $lista_inventarios[$i]->cod_inventario ?>" <?= $selecionado ?> >
+                        <?= $lista_inventarios[$i]->nome_inventario ?> 
+                    </option>
+                    <?php endfor ?>
+
+                </select>
+            </label>
             <label> Local:
                 <select name="cod_local">
                     <option>Selecione o local</option>
@@ -144,6 +150,15 @@ try {
                     <?php endfor ?>
 
                 </select>
+            </label>
+            <label> Número de patrimônio do Item:
+                        <input name="numpat_item" type="text"  value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>" />
+            </label>
+            <label> Usuário responsavél - Codigo
+                        <input name="cod_usuario" type="text" readonly  value="<?= $dados_do_usuario->cod_usuario ?>" />
+            </label>
+            <label> Usuário responsavél - Nome / username
+                        <input name="nome_usuario" type="text" readonly  value="<?= $dados_do_usuario->nome ?> / <?= $dados_do_usuario->username ?> " />
             </label>
             <button type="submit"> Salvar </button>
 
