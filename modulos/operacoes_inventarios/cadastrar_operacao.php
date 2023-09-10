@@ -14,6 +14,17 @@ try {
 
     $total_locais = count($lista_locais);
 
+    /**
+     * Obtendo os inventários
+     */
+    include "../../DAO/InventarioDAO.php";
+
+    $inventario_dao = new InventarioDAO();
+
+    $lista_inventarios = $inventario_dao->getAllRows();
+
+    $total_inventarios = count($lista_inventarios);
+
 
     if(isset($_GET['salvar']))
     //Verifica se o SALVAR vindo da URL está setado para lançar alterações no BD
@@ -93,8 +104,26 @@ try {
         <main>
 
             <form method="post" action="cadastrar_item.php?salvar=true"> 
-            <label> Código do item:
-                        <input name="cod_item" value="<?= isset($dados_item) ? $dados_item->cod_item : NULL ?>" type="text" readonly/>
+            <label> Local:
+                <select name="cod_local">
+                    <option>Selecione o local</option>
+
+                    <?php for($i=0; $i<$total_inventarios; $i++): 
+
+                        $selecionado = " ";
+
+                        if(isset($dados_item->cod_inventario))
+                        {
+                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_item->cod_inventario) ? "selected" : "";
+                        }
+
+                        ?>
+                    <option value="<?= $lista_inventarios[$i]->cod_inventario ?>" <?= $selecionado ?> >
+                        <?= $lista_inventarios[$i]->nome_inventario ?> 
+                    </option>
+                    <?php endfor ?>
+
+                </select>
             </label>
             <label> Local:
                 <select name="cod_local">
@@ -118,9 +147,8 @@ try {
                 </select>
             </label>
             <label> Número de patrimônio do Item:
-                        <input name="numpat_item" type="number"  value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>" />
+                        <input name="numpat_item" type="text"  value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>" />
             </label>
-
 
             <button type="submit"> Salvar </button>
 

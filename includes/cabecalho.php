@@ -39,14 +39,15 @@ try {
             <li><a href="/modulos/inventario/lista_inventarios.php">Listar Inventários</a></li>
             <li><a href="/modulos/inventario/adicionar_item_inventario.php">Adicionar Item ao Inventário</a></li>
 
-            <li><a href="/modulos/local/cadastrar_local.php">Cadastrar Local</a></li>
-            <li><a href="/modulos/local/listar_locais.php">Listar Locais</a></li>
+            <li><a href="/modulos/locais/cadastrar_local.php">Cadastrar Local</a></li>
+            <li><a href="/modulos/locais/listar_locais.php">Listar Locais</a></li>
 
         <!--    <li><a href="#">Cadastrar tipo</a></li>
             <li><a href="#">Listar Tipos</a></li> -->
 
             <li><a href="/modulos/itens/cadastrar_item.php">Cadastrar ativo</a></li>
             <li><a href="/modulos/itens/lista_itens.php">Listar ativos</a></li>
+            <li><a href="/modulos/operacoes_inventarios/cadastrar_operacao.php">Inserir operação de inventário</a></li>
         </ul>
     </nav>
     <hr>
