@@ -12,14 +12,14 @@ class InventarioDAO {
     }
 
     public function insert($dados_inventario) {
-        $sql = "INSERT INTO inventario (nome_inventario) VALUES (?)";
+        $sql = "INSERT INTO inventarios (nome_inventario) VALUES (?)";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $dados_inventario['nome_inventario']);
         $stmt->execute();
     }
 
     public function getAllRows() {
-        $stmt = $this->conexao->prepare("SELECT * FROM inventario");
+        $stmt = $this->conexao->prepare("SELECT * FROM inventarios");
         $stmt->execute();
         
         $arr_inventarios = array();

@@ -11,11 +11,11 @@ if (isset($_GET["sair"])) {
 }
 
 try {
-    if (isset($_POST['salvar'])) {
+    if (isset($_GET['salvar'])) {
         include "../../DAO/InventarioDAO.php";
 
         $inventario_dao = new InventarioDAO();
-
+        echo "teste";
         $dados_inventario = array(
             'nome_inventario' => $_POST["nome_inventario"]
         );
