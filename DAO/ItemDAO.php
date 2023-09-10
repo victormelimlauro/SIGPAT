@@ -16,7 +16,7 @@ class ItemDAO {
      }
 
      /**
-      * Retorna um registro especifoc da tabela Itens
+      * Retorna um registro específico da tabela Itens
       */
     public function getById($cod_item) {
 
@@ -47,18 +47,18 @@ class ItemDAO {
      * Método que insere um item na tabela Items
      */
     public function insert($dados_item) {
+        if (isset($dados_item['cod_local'])) {
+            $sql = "INSERT INTO itens (numpat_item, cod_local, nome_item, preco_item) VALUES (?, ?, ?, ?)";
 
-        $sql = "INSERT INTO itens
-                            (numpat_item, cod_local, nome_item, preco_item)
-                            VALUES
-                            (?, ?, ?, ?)";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $dados_item['numpat_item']);
-        $stmt->bindValue(2, $dados_item['cod_local']);
-        $stmt->bindValue(3, $dados_item['nome_item']);
-        $stmt->bindValue(4, $dados_item['preco_item']);
-        $stmt->execute();
+            $stmt = $this->conexao->prepare($sql);
+            $stmt->bindValue(1, $dados_item['numpat_item']);
+            $stmt->bindValue(2, $dados_item['cod_local']);
+            $stmt->bindValue(3, $dados_item['nome_item']);
+            $stmt->bindValue(4, $dados_item['preco_item']);
+            $stmt->execute();
+        } else {
+            echo "Erro: 'cod_local' não está definido.";
+        }
     }
 
     /**
@@ -67,7 +67,7 @@ class ItemDAO {
     public function update($dados_item) {
 
         $sql = "UPDATE itens
-                SET numpat_item = ?, cod_local = ?, nome_item= ?, preco_item = ?
+                SET numpat_item = ?, cod_local = ?, nome_item = ?, preco_item = ?
                 WHERE cod_item = ? ";
 
         $stmt = $this->conexao->prepare($sql);
@@ -87,4 +87,23 @@ class ItemDAO {
         $stmt->execute();
 
     }
+
+    /**
+     * Retorna os itens associados a um inventário específico.
+     */
+    public function getItemsByInventory($cod_inventario) {
+        $sql = "SELECT * FROM itens WHERE cod_inventario = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $cod_inventario);
+        $stmt->execute();
+
+        $arr_itens = array();
+
+        while($item = $stmt->fetchObject()) {
+            $arr_itens[] = $item;
+        }
+
+        return $arr_itens;
+    }
 }
+?>
