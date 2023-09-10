@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 10-Set-2023 às 01:36
+-- Tempo de geração: 10-Set-2023 às 04:06
 -- Versão do servidor: 8.0.28
 -- versão do PHP: 7.4.30
 
@@ -38,6 +38,7 @@ CREATE TABLE `inventarios` (
 --
 
 INSERT INTO `inventarios` (`cod_inventario`, `nome_inventario`) VALUES
+(3, 'Teste gui'),
 (2, 'TESTE juam'),
 (1, 'TESTE VITAO');
 
@@ -68,7 +69,7 @@ INSERT INTO `itens` (`cod_item`, `numpat_item`, `cod_local`, `nome_item`, `preco
 (7, 862, 16, 'Computador Dell', '3500.00'),
 (8, 101, 40, 'Notebook', '5000.00'),
 (11, 555, 1, 'Computador Aple', '5000.00'),
-(12, 555, 1, NULL, NULL);
+(12, 555, 1, 'Cadeira do vovo', '19.00');
 
 -- --------------------------------------------------------
 
@@ -125,7 +126,9 @@ CREATE TABLE `operacoes_inventarios` (
 --
 
 INSERT INTO `operacoes_inventarios` (`cod_operacoes_inventarios`, `cod_local`, `cod_inventario`, `numpat_item`, `cod_usuario`) VALUES
-(1, 4, 1, 50, 1);
+(1, 4, 1, 50, 1),
+(2, 4, 1, 50, 1),
+(3, 40, 2, 55, 1);
 
 -- --------------------------------------------------------
 
@@ -193,7 +196,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `inventarios`
 --
 ALTER TABLE `inventarios`
-  MODIFY `cod_inventario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod_inventario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `itens`
@@ -211,7 +214,7 @@ ALTER TABLE `locais`
 -- AUTO_INCREMENT de tabela `operacoes_inventarios`
 --
 ALTER TABLE `operacoes_inventarios`
-  MODIFY `cod_operacoes_inventarios` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cod_operacoes_inventarios` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`

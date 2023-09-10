@@ -48,6 +48,8 @@ try {
             <li><a href="/modulos/itens/cadastrar_item.php">Cadastrar ativo</a></li>
             <li><a href="/modulos/itens/lista_itens.php">Listar ativos</a></li>
             <li><a href="/modulos/operacoes_inventarios/cadastrar_operacao.php">Inserir operação de inventário</a></li>
+            <li><a href="/modulos/operacoes_inventarios/listar_operacoes.php">Listar operações de inventário</a></li>
+            <li><a href="/modulos/relatorios/status_itens_inventarios.php">Relatório</a></li>
         </ul>
     </nav>
     <hr>
