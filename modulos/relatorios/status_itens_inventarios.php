@@ -15,8 +15,29 @@ try {
 
     $total_inventarios = count($lista_inventarios);
 
-    var_dump($lista_inventarios);
+    //var_dump($lista_inventarios);
+    var_dump($_POST['cod_inventario']);
 
+    if (isset($_POST['opcao'])) {
+        $opcao = $_POST['opcao'];
+
+        switch ($opcao) {
+            case 'itensLocalCorreto':
+                $mensagem = "Você selecionou a Opção 1.";
+                break;
+            case 'itensLocalDivergente':
+                $mensagem = "Você selecionou a Opção 2.";
+                break;
+            case 'itensNaoLocalizados':
+                $mensagem = "Você selecionou a Opção 3.";
+                break;
+            default:
+                $mensagem = "Opção inválida.";
+                break;
+        }
+
+        echo '<p>' . $mensagem . '</p>';
+    }
 
 
 } catch(Exception $e) {
@@ -40,7 +61,7 @@ try {
 
         <main>
 
-            <form method="post" action="cadastrar_operacao.php?salvar=true"> 
+            <form method="post" action="status_itens_inventarios.php"> 
             <label> Inventario:
                 <select name="cod_inventario">
                     <option>Selecione o Inventario</option>
@@ -63,11 +84,11 @@ try {
                 </select>
             </label>
             <label> Tipo de relatório:
-                <select name="cod_local">
+                <select name="opcao">
                     <option>Selecione o local</option>
-                    <option>Itens localizados no local correto</option>
-                    <option>Itens localizados em local divergente</option> 
-                    <option>Selecione o local</option>
+                    <option value="itensLocalCorreto">Itens localizados no local correto</option>
+                    <option value="itensLocalDivergente">Itens localizados em local divergente</option> 
+                    <option value="itensNaoLocalizados">Itens Não localizados</option>
 
                 </select>
             </label>
