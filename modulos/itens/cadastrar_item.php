@@ -123,8 +123,19 @@ try {
                 <select name="cod_local">
                     <option>Selecione o local</option>
 
-                    <?php for($i=0; $i<$total_locais; $i++): ?>
-                    <option value="<?= $lista_locais[$i]->cod_local ?>"> <?= $lista_locais[$i]->nome_local ?> </option>
+                    <?php for($i=0; $i<$total_locais; $i++): 
+
+                        $selecionado = " ";
+
+                        if(isset($dados_item->cod_local))
+                        {
+                            $selecionado = ($lista_locais[$i]->cod_local == $dados_item->cod_local) ? "selected" : "";
+                        }
+
+                        ?>
+                    <option value="<?= $lista_locais[$i]->cod_local ?>" <?= $selecionado ?> >
+                        <?= $lista_locais[$i]->nome_local ?> 
+                    </option>
                     <?php endfor ?>
 
                 </select>
