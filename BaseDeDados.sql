@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 10-Set-2023 às 01:33
+-- Tempo de geração: 10-Set-2023 às 01:36
 -- Versão do servidor: 8.0.28
 -- versão do PHP: 7.4.30
 
@@ -118,7 +118,7 @@ CREATE TABLE `operacoes_inventarios` (
   `cod_inventario` int NOT NULL,
   `numpat_item` int NOT NULL,
   `cod_usuario` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `operacoes_inventarios`
