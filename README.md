@@ -4,7 +4,7 @@ Sistema Integrado de Gestão do Patrimônio
 ## Objetivo do sistema
 Criamos este sistema focando numa demanda de algumas instuições para realizar inventários de ativos de patrimônio.  
 
-A promemática enxergada foi a complexidade no processamento de dados durante operações de inventários onde vários inventáriantes saem em busca dos itens com planilhas impressas e devolvem essas planilhas aos lideres dos inventários para processamento manual.  
+A prombleemática enxergada foi a complexidade no processamento de dados durante operações de inventários onde vários inventáriantes saem em busca dos itens com planilhas impressas e devolvem essas planilhas aos lideres dos inventários para processamento manual.  
 
 A idéia para solucionar estes problemas é criar um sistema WEB de código aberto que proporcione um fluxo RPA (Robotic Process Automation) integrado com base de dados, onde todos os inventáriantes bem como a gestão tenham acesso aos dados em tempo real e consigam gerar relatórios.
 
