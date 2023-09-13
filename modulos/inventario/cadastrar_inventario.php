@@ -39,8 +39,8 @@ try {
         <h1>Criar Inventário</h1>
         <form method="post" action="cadastrar_inventario.php?salvar=true">
             <label>Nome do Inventário:</label>
-            <input name="nome_inventario" type="text" />
-            <button type="submit">Salvar</button>
+            <input name="nome_inventario" type="text" required />
+            <button type="submit" name="salvar">Salvar</button>
         </form>
     </main>
     <?php include '../../includes/rodape.php' ?>
