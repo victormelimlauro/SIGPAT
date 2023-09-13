@@ -16,7 +16,7 @@ try {
 
     $total_itens = count($lista_OperacaoInventario);
 
-    var_dump($lista_OperacaoInventario);
+   // var_dump($lista_OperacaoInventario);
 } catch(Exception $e) {
 
     echo $e->getMessage();

@@ -21,8 +21,8 @@ try {
 
     $total_inventarios = count($lista_inventarios);
 
-    //var_dump($lista_inventarios);
-    var_dump($_POST['cod_inventario']);
+   var_dump($lista_inventarios);
+   //var_dump($_POST['cod_inventario']);
 
     if (isset($_POST['opcao'])) {
         $opcao = $_POST['opcao'];
@@ -30,12 +30,54 @@ try {
         switch ($opcao) {
             case 'itensLocalCorreto':
                 $mensagem = "Você selecionou a Opção 1.";
+                include "../../DAO/RelatorioDAO.php";
+    
+                $Relatorio_dao = new RelatorioDAO();
+        
+               // $nome_local = $_POST["nome_local"];
+        
+        
+                $dados_relatorio = array (
+                'cod_inventario' => $_POST["cod_inventario"],
+                );
+                
+                $lista_relatorio = $Relatorio_dao ->getitensLocalCorreto($dados_relatorio);
+                $total_relatorios = count($lista_relatorio);
+                 var_dump($lista_relatorio);
                 break;
             case 'itensLocalDivergente':
                 $mensagem = "Você selecionou a Opção 2.";
+                include "../../DAO/RelatorioDAO.php";
+    
+                $Relatorio_dao = new RelatorioDAO();
+        
+               // $nome_local = $_POST["nome_local"];
+        
+        
+                $dados_relatorio = array (
+                'cod_inventario' => $_POST["cod_inventario"],
+                );
+                
+                $lista_relatorio = $Relatorio_dao ->itensLocalDivergente($dados_relatorio);
+                $total_relatorios = count($lista_relatorio);
+                 var_dump($lista_relatorio);
                 break;
             case 'itensNaoLocalizados':
                 $mensagem = "Você selecionou a Opção 3.";
+                include "../../DAO/RelatorioDAO.php";
+    
+                $Relatorio_dao = new RelatorioDAO();
+        
+               // $nome_local = $_POST["nome_local"];
+        
+        
+                $dados_relatorio = array (
+                'cod_inventario' => $_POST["cod_inventario"],
+                );
+                
+                $lista_relatorio = $Relatorio_dao ->itensNaoLocalizados($dados_relatorio);
+                $total_relatorios = count($lista_relatorio);
+                 var_dump($lista_relatorio);
                 break;
             default:
                 $mensagem = "Opção inválida.";
@@ -43,6 +85,11 @@ try {
         }
 
         echo '<p>' . $mensagem . '</p>';
+
+    
+
+    
+           
     }
 
 
@@ -102,6 +149,152 @@ try {
             <button type="submit"> Salvar </button>
 
             </form>
+            <?php
+    // Adicione o código abaixo para exibir as tabelas com base na opção selecionada
+
+    if (isset($opcao)) {
+        var_dump($opcao);        
+            // Exiba os dados do relatório aqui
+            // Por exemplo, você pode criar uma tabela para cada opção selecionada.
+            // Certifique-se de personalizar o conteúdo da tabela de acordo com seus dados.
+            switch ($opcao) {
+                case 'itensLocalCorreto':
+                    // Exiba a tabela correspondente para 'itensLocalCorreto'
+                   ?> 
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Codigo Operação</th>
+                            <th>Codigo local</th>
+                            <th>Nome Local:</th>
+                            <th>Num. Plaqueta:</th>
+                            <th>Nume item:</th>
+                            <th>Cod. Inventario:</th>
+                            <th>Nome Inventario:</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php for($i=0; $i<$total_relatorios; $i++): ?>
+                        <tr>
+                            <td> <?= $lista_relatorio[$i]->cod_operacoes_inventarios ?> </td>
+                            <td> <?= $lista_relatorio[$i]->cod_local ?> </td>
+                            <td> <?= $lista_relatorio[$i]->nome_local ?> </td>
+                            <td> <?= $lista_relatorio[$i]->numpat_item ?> </td>
+                            <td> <?= $lista_relatorio[$i]->nome_item ?> </td>
+                            <td> <?= $lista_relatorio[$i]->cod_inventario ?> </td>
+                            <td> <?= $lista_relatorio[$i]->nome_inventario ?> </td>
+                            <td> 
+                                <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>">
+                                    Editar</a> 
+                            </td>
+                            <td> 
+                                <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>">
+                                    Excluir</a> 
+                            </td>
+                        </tr>
+                        <?php endfor ?>
+                    </tbody>
+                </table>
+                
+                <?php           
+                    break;
+                case 'itensLocalDivergente':
+                    // Exiba a tabela correspondente para 'itensLocalDivergente'
+                    ?>
+                    <!-- Conteúdo da tabela para itensLocalDivergente -->
+                        
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Codigo OOOOOperação</th>
+                                <th>Codigo local encontrado</th>
+                                <th>Nome Local encontrado:</th>
+                                <th>Codigo local cadastrado</th>
+                                <th>Nome Local cadastrado:</th>
+                                <th>Num. Plaqueta:</th>
+                                <th>Nume item:</th>
+                                <th>Cod. Inventario:</th>
+                                <th>Nome Inventario:</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php for($i=0; $i<$total_relatorios; $i++): ?>
+                            <tr>
+                                <td> <?= $lista_relatorio[$i]->cod_operacoes_inventarios ?> </td>
+                                <td> <?= $lista_relatorio[$i]->cod_local_encontrado ?> </td>
+                                <td> <?= $lista_relatorio[$i]->nome_local_encontrado ?> </td>
+                                <td> <?= $lista_relatorio[$i]->cod_local_cadastrado ?> </td>
+                                <td> <?= $lista_relatorio[$i]->nome_local_cadastrado ?> </td>
+                                <td> <?= $lista_relatorio[$i]->numpat_item ?> </td>
+                                <td> <?= $lista_relatorio[$i]->nome_item ?> </td>
+                                <td> <?= $lista_relatorio[$i]->cod_inventario ?> </td>
+                                <td> <?= $lista_relatorio[$i]->nome_inventario ?> </td>
+                                <td> 
+                                    <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>">
+                                        Editar</a> 
+                                </td>
+                                <td> 
+                                    <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>">
+                                        Excluir</a> 
+                                </td>
+                            </tr>
+                            <?php endfor ?>
+                        </tbody>
+                    </table>
+                    <?php
+                    break;
+                case 'itensNaoLocalizados':
+                    
+                    // Exiba a tabela correspondente para 'itensNaoLocalizados'
+                    ?>
+                    <table>
+                <thead>
+                    <tr>
+                        <th>Codigo local</th>
+                        <th>Nome Local:</th>
+                        <th>Num. Plaqueta:</th>
+                        <th>Nome item:</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php for($i=0; $i<$total_relatorios; $i++): ?>
+                    <tr>
+                        
+                        <td> <?= $lista_relatorio[$i]->cod_local ?> </td>
+                        <td> <?= $lista_relatorio[$i]->nome_local ?> </td>
+                        <td> <?= $lista_relatorio[$i]->numpat_item ?> </td>
+                        <td> <?= $lista_relatorio[$i]->nome_item ?> </td>
+
+                        <td> 
+                            <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>">
+                                Editar</a> 
+                        </td>
+                        <td> 
+                            <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>">
+                                Excluir</a> 
+                        </td>
+                    </tr>
+                    <?php endfor ?>
+                </tbody>
+            </table>
+                    <?php
+                          break;
+                default:
+                    // Opção inválida
+                    echo '<p>Opção inválida.</p>';
+                    break;
+            }
+        
+    }
+    ?>
+
+
+
+
+           
         </main>
 
         <?php include '../../includes/rodape.php' ?>
