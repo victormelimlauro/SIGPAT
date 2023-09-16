@@ -11,11 +11,18 @@ if (isset($_GET["sair"])) {
 }
 
 try {
-    if (isset($_GET['salvar'])) {
-        include "../../DAO/InventarioDAO.php";
+    include "../../DAO/InventarioDAO.php";
+    $inventario_dao = new InventarioDAO();
 
-        $inventario_dao = new InventarioDAO();
-        echo "teste";
+
+    if (isset($_GET['excluir']) && isset($_GET['cod_inventario'])) {
+        $cod_inventario = $_GET['cod_inventario'];
+        $inventario_dao->delete($cod_inventario);
+        header("Location: lista_inventarios.php");
+
+    }
+    
+    if (isset($_POST['salvar'])) {
         $dados_inventario = array(
             'nome_inventario' => $_POST["nome_inventario"]
         );
