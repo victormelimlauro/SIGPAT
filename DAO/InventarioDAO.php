@@ -1,3 +1,4 @@
+// A
 <?php
 
 class InventarioDAO {
