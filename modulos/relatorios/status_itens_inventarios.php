@@ -21,7 +21,7 @@ try {
 
     $total_inventarios = count($lista_inventarios);
 
-   var_dump($lista_inventarios);
+   //var_dump($lista_inventarios);
    //var_dump($_POST['cod_inventario']);
 
     if (isset($_POST['opcao'])) {
@@ -29,7 +29,7 @@ try {
 
         switch ($opcao) {
             case 'itensLocalCorreto':
-                $mensagem = "Você selecionou a Opção 1.";
+               // $mensagem = "Você selecionou a Opção 1.";
                 include "../../DAO/RelatorioDAO.php";
     
                 $Relatorio_dao = new RelatorioDAO();
@@ -43,10 +43,10 @@ try {
                 
                 $lista_relatorio = $Relatorio_dao ->getitensLocalCorreto($dados_relatorio);
                 $total_relatorios = count($lista_relatorio);
-                 var_dump($lista_relatorio);
+                // var_dump($lista_relatorio);
                 break;
             case 'itensLocalDivergente':
-                $mensagem = "Você selecionou a Opção 2.";
+                //$mensagem = "Você selecionou a Opção 2.";
                 include "../../DAO/RelatorioDAO.php";
     
                 $Relatorio_dao = new RelatorioDAO();
@@ -60,10 +60,10 @@ try {
                 
                 $lista_relatorio = $Relatorio_dao ->itensLocalDivergente($dados_relatorio);
                 $total_relatorios = count($lista_relatorio);
-                 var_dump($lista_relatorio);
+                 //var_dump($lista_relatorio);
                 break;
             case 'itensNaoLocalizados':
-                $mensagem = "Você selecionou a Opção 3.";
+                //$mensagem = "Você selecionou a Opção 3.";
                 include "../../DAO/RelatorioDAO.php";
     
                 $Relatorio_dao = new RelatorioDAO();
@@ -77,18 +77,18 @@ try {
                 
                 $lista_relatorio = $Relatorio_dao ->itensNaoLocalizados($dados_relatorio);
                 $total_relatorios = count($lista_relatorio);
-                 var_dump($lista_relatorio);
+                 //var_dump($lista_relatorio);
                 break;
             default:
                 $mensagem = "Opção inválida.";
                 break;
         }
 
-        echo '<p>' . $mensagem . '</p>';
+        // echo '<p>' . $mensagem . '</p>';
 
     
 
-    
+    var_dump($opcao);
            
     }
 
@@ -123,9 +123,9 @@ try {
 
                         $selecionado = " ";
 
-                        if(isset($dados_item->cod_inventario))
+                        if(isset($dados_relatorio['cod_inventario']))
                         {
-                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_item->cod_inventario) ? "selected" : "";
+                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_relatorio['cod_inventario']) ? "selected" : "";
                         }
 
                         ?>
@@ -139,21 +139,25 @@ try {
             <label> Tipo de relatório:
                 <select name="opcao">
                     <option>Selecione o local</option>
-                    <option value="itensLocalCorreto">Itens localizados no local correto</option>
-                    <option value="itensLocalDivergente">Itens localizados em local divergente</option> 
-                    <option value="itensNaoLocalizados">Itens Não localizados</option>
+                    <?php
+                    $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : ""; // Recupere o valor selecionado, se houver
+                    ?>
 
+                    <option value="itensLocalCorreto" <?= $opcao === "itensLocalCorreto" ? "selected" : "" ?> >Itens localizados no local correto</option>
+                    <option value="itensLocalDivergente" <?= $opcao === "itensLocalDivergente" ? "selected" : "" ?> >Itens localizados em local divergente</option> 
+                    <option value="itensNaoLocalizados" <?= $opcao === "itensNaoLocalizados" ? "selected" : "" ?> >Itens Não localizados</option>
                 </select>
             </label>
+
             
-            <button type="submit"> Salvar </button>
+            <button type="submit"> Buscar relatório </button>
 
             </form>
             <?php
     // Adicione o código abaixo para exibir as tabelas com base na opção selecionada
 
     if (isset($opcao)) {
-        var_dump($opcao);        
+        //var_dump($opcao);        
             // Exiba os dados do relatório aqui
             // Por exemplo, você pode criar uma tabela para cada opção selecionada.
             // Certifique-se de personalizar o conteúdo da tabela de acordo com seus dados.

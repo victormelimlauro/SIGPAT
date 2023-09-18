@@ -20,7 +20,7 @@ class OperacaoInventarioDAO {
         $stmt->bindValue(4, $dados_operacao_inventario['cod_usuario']);  
     
         $stmt->execute();
-        var_dump($stmt);
+       // var_dump($stmt);
     }
 
     public function getAllRows() {
@@ -41,8 +41,8 @@ class OperacaoInventarioDAO {
         return $arr_inventarios;
     }
 
-    public function itensNaoLocalizadosNoSetor($dados_relatorio) {
-        $stmt = $this->conexao->prepare("SELECT a.cod_local, f.nome_local, /*c.cod_local,*/ a.cod_item, a.numpat_item, a.nome_item , c.cod_inventario /*, d.nome_inventario */
+    public function itensNaoLocalizadosNoSetor($dados_operacao_inventario) {
+        $stmt = $this->conexao->prepare("SELECT DISTINCT a.cod_local, f.nome_local, /*c.cod_local,*/ a.cod_item, a.numpat_item, a.nome_item , c.cod_inventario /*, d.nome_inventario */
         FROM itens as A
         /*CROSS JOIN locais as B on a.cod_local= b.cod_local*/
         LEFT OUTER JOIN operacoes_inventarios  as C on a.numpat_item = c.numpat_item
@@ -53,8 +53,8 @@ class OperacaoInventarioDAO {
 		FROM operacoes_inventarios oi
 		WHERE oi.cod_inventario = ?
 		) AND a.cod_local = ?");
-        $stmt->bindValue(1, $dados_relatorio['cod_inventario']);
-        $stmt->bindValue(1, $dados_relatorio['cod_local']);
+        $stmt->bindValue(1, $dados_operacao_inventario['cod_inventario']);
+        $stmt->bindValue(2, $dados_operacao_inventario['cod_local']);
         $stmt->execute();
         
         $arr_relatorio = array();
@@ -66,7 +66,7 @@ class OperacaoInventarioDAO {
         return $arr_relatorio;
     }
 
-    public function itensLocalizadosNoSetor($dados_relatorio) {
+    public function itensLocalizadosNoSetor($dados_operacao_inventario) {
         $stmt = $this->conexao->prepare("SELECT  cod_operacoes_inventarios, b.cod_local, b.nome_local, c.numpat_item, c.nome_item, d.cod_inventario, d.nome_inventario, e.cod_usuario, e.nome
         FROM operacoes_inventarios as A
         INNER JOIN locais as B on a.cod_local= b.cod_local
@@ -74,8 +74,8 @@ class OperacaoInventarioDAO {
         INNER JOIN inventarios  as D on a.cod_inventario = d.cod_inventario
         INNER JOIN usuarios  as E on a.cod_usuario = e.cod_usuario
         WHERE a.cod_inventario = ? and  a.cod_local = ?");
-        $stmt->bindValue(1, $dados_relatorio['cod_inventario']);
-        $stmt->bindValue(1, $dados_relatorio['cod_local']);
+        $stmt->bindValue(1, $dados_operacao_inventario['cod_inventario']);
+        $stmt->bindValue(2, $dados_operacao_inventario['cod_local']);
         $stmt->execute();
         
         $arr_relatorio = array();

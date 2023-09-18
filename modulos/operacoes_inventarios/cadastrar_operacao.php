@@ -30,7 +30,9 @@ try {
 
     $total_inventarios = count($lista_inventarios);
 
+    
 
+    //var_dump($dados_local);
     if(isset($_GET['salvar']))
     //Verifica se o SALVAR vindo da URL está setado para lançar alterações no BD
     {
@@ -49,13 +51,21 @@ try {
         'cod_usuario' => $_POST["cod_usuario"],
         );
         
-        var_dump($dados_operacao_inventario);
         $OperacaoInventario_dao->insert($dados_operacao_inventario);
            echo"Inserido";
 
+        $lista_itensNaoLocalizadosNoSetor = $OperacaoInventario_dao->itensNaoLocalizadosNoSetor($dados_operacao_inventario);
+        $total_itensNaoLocalizadosNoSetor = count($lista_itensNaoLocalizadosNoSetor);
+        $lista_itensLocalizadosNoSetor =$OperacaoInventario_dao->itensLocalizadosNoSetor($dados_operacao_inventario);
+        $total_itensLocalizadosNoSetor = count($lista_itensLocalizadosNoSetor);
+       
        }
+        /*var_dump($dados_operacao_inventario['cod_local']);    
+       echo($dados_operacao_inventario['cod_local']);
+       var_dump($dados_operacao_inventario['cod_inventario']);    
+       echo($dados_operacao_inventario['cod_inventario']);
+       */
 
-    
        
     if(isset($_GET['excluir']))
     {
@@ -84,7 +94,7 @@ try {
         
     }
 
-
+//var_dump($dados_operacao_inventario['cod_local']);
 
 
 } catch(Exception $e) {
@@ -116,10 +126,9 @@ try {
                     <?php for($i=0; $i<$total_inventarios; $i++): 
 
                         $selecionado = " ";
-
-                        if(isset($dados_item->cod_inventario))
+                        if(isset($dados_operacao_inventario['cod_inventario']))
                         {
-                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_item->cod_inventario) ? "selected" : "";
+                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_operacao_inventario['cod_inventario']) ? "selected" : "";
                         }
 
                         ?>
@@ -138,9 +147,9 @@ try {
 
                         $selecionado = " ";
 
-                        if(isset($dados_item->cod_local))
+                        if(isset($dados_operacao_inventario['cod_local']))
                         {
-                            $selecionado = ($lista_locais[$i]->cod_local == $dados_item->cod_local) ? "selected" : "";
+                            $selecionado = ($lista_locais[$i]->cod_local == $dados_operacao_inventario['cod_local']) ? "selected" : "";
                         }
 
                         ?>
@@ -163,6 +172,44 @@ try {
             <button type="submit"> Salvar </button>
 
             </form>
+
+            <h1> Tabela de Itens localizados no setor  </h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Codigo operação</th>
+                        <th>Num. Pat. Item</th>
+                        <th>Nome Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php for($i=0; $i<$total_itensLocalizadosNoSetor; $i++): ?>
+                    <tr>
+                        <td> <?= $lista_itensLocalizadosNoSetor[$i]->cod_operacoes_inventarios ?> </td>
+                        <td> <?= $lista_itensLocalizadosNoSetor[$i]->numpat_item ?> </td>
+                        <td> <?= $lista_itensLocalizadosNoSetor[$i]->nome_item ?> </td>
+                    </tr>
+                    <?php endfor ?>
+                </tbody>
+            </table>
+
+            <h1> Tabela de Itens NÃO localizados no setor  </h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Num. Pat. Item</th>
+                        <th>Nome Item</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php for($i=0; $i<$total_itensNaoLocalizadosNoSetor; $i++): ?>
+                    <tr>
+                        <td> <?= $lista_itensNaoLocalizadosNoSetor[$i]->numpat_item ?> </td>
+                        <td> <?= $lista_itensNaoLocalizadosNoSetor[$i]->nome_item ?> </td>
+                    </tr>
+                    <?php endfor ?>
+                </tbody>
+            </table>
         </main>
 
         <?php include '../../includes/rodape.php' ?>

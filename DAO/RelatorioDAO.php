@@ -54,7 +54,7 @@ class RelatorioDAO {
     }
 
     public function itensNaoLocalizados($dados_relatorio) {
-        $stmt = $this->conexao->prepare("SELECT   a.cod_local, f.nome_local, /*c.cod_local,*/ a.cod_item, a.numpat_item, a.nome_item , c.cod_inventario /*, d.nome_inventario */
+        $stmt = $this->conexao->prepare("SELECT DISTINCT  a.cod_local, f.nome_local, /*c.cod_local,*/ a.cod_item, a.numpat_item, a.nome_item , c.cod_inventario /*, d.nome_inventario */
         FROM itens as A
         /*CROSS JOIN locais as B on a.cod_local= b.cod_local*/
         LEFT OUTER JOIN operacoes_inventarios  as C on a.numpat_item = c.numpat_item

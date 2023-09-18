@@ -40,7 +40,7 @@ class InventarioDAO {
         $stmt->execute();
     }
 
-    public function getAllRows() {
+    public function getAllRows2() {
         $stmt = $this->conexao->prepare("SELECT * FROM inventario");
         $stmt->execute();
     }
