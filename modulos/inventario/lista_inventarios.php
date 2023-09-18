@@ -24,6 +24,7 @@ try {
                 <tr>
                     <th>Código</th>
                     <th>Nome do Inventário</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,10 @@ try {
                     <tr>
                         <td><?= $lista_inventarios[$i]->cod_inventario ?></td>
                         <td><?= $lista_inventarios[$i]->nome_inventario ?></td>
+                        <td>
+                            <a href="editar_inventario.php?cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>">Editar</a>
+                            <a href="cadastrar_inventario.php?excluir=true&cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>">Excluir</a>
+                        </td>
                     </tr>
                 <?php endfor ?>
             </tbody>
