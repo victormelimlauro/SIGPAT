@@ -23,7 +23,7 @@ try {
 
 <header>
     <h1>SIGPAT
-        <small>Sistema de gestão do patrimônio</small>
+        <small>Sistema Integrado de Gestão do Patrimônio</small>
     </h1>
 
     <fieldset>
@@ -35,21 +35,21 @@ try {
             <li><a href="index.php">Tela inicial</a></li>
 
 
-            <li><a href="../SIGPAT/modulos/inventario/cadastrar_inventario.php">Criar Inventário</a></li>
-            <li><a href="../SIGPAT/modulos/inventario/lista_inventarios.php">Listar Inventários</a></li>
-            <li><a href="../SIGPAT/modulos/inventario/adicionar_item_inventario.php">Adicionar Item ao Inventário</a></li>
+            <li><a href="/modulos/inventario/cadastrar_inventario.php">Criar Inventário</a></li>
+            <li><a href="/modulos/inventario/lista_inventarios.php">Listar Inventários</a></li>
+            <li><a href="/modulos/inventario/adicionar_item_inventario.php">Adicionar Item ao Inventário</a></li>
 
-            <li><a href="../SIGPAT/modulos/locais/cadastrar_local.php">Cadastrar Local</a></li>
-            <li><a href="../SIGPAT/modulos/locais/listar_locais.php">Listar Locais</a></li>
+            <li><a href="/modulos/locais/cadastrar_local.php">Cadastrar Local</a></li>
+            <li><a href="/modulos/locais/listar_locais.php">Listar Locais</a></li>
 
         <!--    <li><a href="#">Cadastrar tipo</a></li>
             <li><a href="#">Listar Tipos</a></li> -->
 
-            <li><a href="../SIGPAT/modulos/itens/cadastrar_item.php">Cadastrar ativo</a></li>
-            <li><a href="../SIGPAT/modulos/itens/lista_itens.php">Listar ativos</a></li>
-            <li><a href="../SIGPAT/modulos/operacoes_inventarios/cadastrar_operacao.php">Inserir operação de inventário</a></li>
-            <li><a href="../SIGPAT/modulos/operacoes_inventarios/listar_operacoes.php">Listar operações de inventário</a></li>
-            <li><a href="../SIGPAT/modulos/relatorios/status_itens_inventarios.php">Relatório</a></li>
+            <li><a href="/modulos/itens/cadastrar_item.php">Cadastrar ativo</a></li>
+            <li><a href="/modulos/itens/lista_itens.php">Listar ativos</a></li>
+            <li><a href="/modulos/operacoes_inventarios/cadastrar_operacao.php">Inserir operação de inventário</a></li>
+            <li><a href="/modulos/operacoes_inventarios/listar_operacoes.php">Listar operações de inventário</a></li>
+            <li><a href="/modulos/relatorios/status_itens_inventarios.php">Relatório</a></li>
         </ul>
     </nav>
     <hr>

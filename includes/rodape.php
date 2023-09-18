@@ -1,5 +1,5 @@
 <footer>
     <hr />
 
-    <p> SIGPAT - Sistema de gestão do patrimonio. </p>
+    <p> ©2023 SIGPAT - Sistema Integrado de Gestão do Patrimônio. </p>
 </footer>
