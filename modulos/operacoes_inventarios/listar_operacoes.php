@@ -41,7 +41,7 @@ try {
                         <th>Num. Pat. Item</th>
                         <th>Nome Item</th>
                         <th>Cod. Inventario</th>
-                        <th>Nome Item</th>
+                        <th>Nome Inventario</th>
                         <th>Cod. Usuário</th>
                         <th>Nome Usuário</th>
                         <th>Ações</th>
@@ -60,11 +60,7 @@ try {
                         <td> <?= $lista_OperacaoInventario[$i]->cod_usuario ?> </td>
                         <td> <?= $lista_OperacaoInventario[$i]->nome ?> </td>
                         <td> 
-                            <a href="cadastrar_item.php?cod_item=<?= $lista_itens[$i]->cod_item ?>">
-                                Editar</a> 
-                        </td>
-                        <td> 
-                            <a href="cadastrar_item.php?excluir=true&cod_item=<?= $lista_itens[$i]->cod_item ?>">
+                            <a href="cadastrar_operacao.php?excluir=true&cod_operacoes_inventarios=<?= $lista_OperacaoInventario[$i]->cod_operacoes_inventarios ?>">
                                 Excluir</a> 
                         </td>
                     </tr>

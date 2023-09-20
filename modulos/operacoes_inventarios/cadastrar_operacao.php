@@ -30,7 +30,30 @@ try {
 
     $total_inventarios = count($lista_inventarios);
 
-    
+    if(isset($_GET['listar']))
+    //Verifica se o SALVAR vindo da URL está setado para lançar alterações no BD
+    {
+
+        include "../../DAO/OperacaoInventarioDAO.php";
+
+        $OperacaoInventario_dao = new OperacaoInventarioDAO();
+
+        $dados_operacao_inventario = array (
+        'cod_inventario' => $_POST["cod_inventario"],
+        'cod_local' => $_POST["cod_local"],
+        'numpat_item' => $_POST["numpat_item"],
+        'cod_usuario' => $_POST["cod_usuario"],
+        );
+
+        $lista_itensNaoLocalizadosNoSetor = $OperacaoInventario_dao->itensNaoLocalizadosNoSetor($dados_operacao_inventario);
+        $total_itensNaoLocalizadosNoSetor = count($lista_itensNaoLocalizadosNoSetor);
+        $lista_itensLocalizadosNoSetor =$OperacaoInventario_dao->itensLocalizadosNoSetor($dados_operacao_inventario);
+        $total_itensLocalizadosNoSetor = count($lista_itensLocalizadosNoSetor);
+
+        $count = $OperacaoInventario_dao->countOperacoesItemInventario($dados_operacao_inventario);
+       // var_dump($count);
+       
+       }    
 
     //var_dump($dados_local);
     if(isset($_GET['salvar']))
@@ -43,7 +66,6 @@ try {
 
        // $nome_local = $_POST["nome_local"];
 
-
         $dados_operacao_inventario = array (
         'cod_inventario' => $_POST["cod_inventario"],
         'cod_local' => $_POST["cod_local"],
@@ -51,9 +73,17 @@ try {
         'cod_usuario' => $_POST["cod_usuario"],
         );
         
-        $OperacaoInventario_dao->insert($dados_operacao_inventario);
-           echo"Inserido";
+        $contaOperacoesItemInventario = $OperacaoInventario_dao->countOperacoesItemInventario($dados_operacao_inventario);
+        //var_dump($contaOperacoesItemInventario);
 
+        if ($contaOperacoesItemInventario<=0) {
+            $OperacaoInventario_dao->insert($dados_operacao_inventario);
+            echo"Inserido";
+            
+        }
+        else {
+            echo("Já existe uma operação realizada para este ativo neste inventário");
+        }
         $lista_itensNaoLocalizadosNoSetor = $OperacaoInventario_dao->itensNaoLocalizadosNoSetor($dados_operacao_inventario);
         $total_itensNaoLocalizadosNoSetor = count($lista_itensNaoLocalizadosNoSetor);
         $lista_itensLocalizadosNoSetor =$OperacaoInventario_dao->itensLocalizadosNoSetor($dados_operacao_inventario);
@@ -69,13 +99,13 @@ try {
        
     if(isset($_GET['excluir']))
     {
-        include "../../DAO/ItemDAO.php";
+        include "../../DAO/OperacaoInventarioDAO.php";
 
-        $item_dao = new ItemDAO();
+        $OperacaoInventario_dao = new OperacaoInventarioDAO();
 
-        $item_dao->delete($_GET["cod_item"]);
+        $OperacaoInventario_dao->delete($_GET["cod_operacoes_inventarios"]);
         // var_dump($_GET["cod_local"]);
-        header("Location: lista_itens.php");
+        header("Location: listar_operacoes.php");
     }
 
     /**
@@ -170,7 +200,8 @@ try {
                         <input name="nome_usuario" type="text" readonly  value="<?= $dados_do_usuario->nome ?> / <?= $dados_do_usuario->username ?> " />
             </label>
             <button type="submit"> Salvar </button>
-
+                    <!-- Segundo botão com ação diferente -->
+            <button type="submit" formaction="cadastrar_operacao.php?listar=true">Ação Diferente</button>
             </form>
 
             <h1> Tabela de Itens localizados no setor  </h1>

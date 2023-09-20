@@ -41,6 +41,26 @@ class OperacaoInventarioDAO {
         return $arr_inventarios;
     }
 
+    public function countOperacoesItemInventario($dados_operacao_inventario) {
+        $stmt = $this->conexao->prepare("SELECT count(numpat_item) FROM operacoes_inventarios
+        WHERE numpat_item = ?
+        AND cod_inventario = ?");
+        //var_dump($dados_operacao_inventario['numpat_item']);
+        //var_dump($dados_operacao_inventario['cod_inventario']);
+        $stmt->bindValue(1, $dados_operacao_inventario['numpat_item']);
+        $stmt->bindValue(2, $dados_operacao_inventario['cod_inventario']);
+        $stmt->execute();
+
+        $arr_relatorio = array();
+
+        while ($row = $stmt->fetchObject()) {
+            $arr_relatorio[] = $row;
+        }
+        $arr_relatorio = $arr_relatorio[0]->{"count(numpat_item)"};
+        //var_dump($arr_relatorio);
+        return $arr_relatorio;
+    }
+
     public function itensNaoLocalizadosNoSetor($dados_operacao_inventario) {
         $stmt = $this->conexao->prepare("SELECT DISTINCT a.cod_local, f.nome_local, /*c.cod_local,*/ a.cod_item, a.numpat_item, a.nome_item , c.cod_inventario /*, d.nome_inventario */
         FROM itens as A
@@ -85,6 +105,14 @@ class OperacaoInventarioDAO {
         }
 
         return $arr_relatorio;
+    }
+    public function delete($cod_operacoes_inventarios){
+       
+        $sql = "DELETE FROM operacoes_inventarios WHERE cod_operacoes_inventarios=? ";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $cod_operacoes_inventarios);
+        $stmt->execute();
+
     }
 
 
