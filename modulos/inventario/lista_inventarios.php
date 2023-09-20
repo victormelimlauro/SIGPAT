@@ -34,7 +34,7 @@ try {
                         <td><?= $lista_inventarios[$i]->nome_inventario ?></td>
                         <td>
                             <a href="cadastrar_inventario.php?excluir=true&cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>">Excluir</a>
-                            <a href="alterar_inventario.php?cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>">Editar</a> <!-- Link para a página de edição -->
+                            <a href="alterar_inventario.php?cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>">Editar</a>
                         </td>
                     </tr>
                 <?php endfor ?>

@@ -9,14 +9,13 @@ try {
     }
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Processar o formulário de edição aqui
         $novo_nome_inventario = $_POST['novo_nome_inventario'];
         $dados_inventario = [
             'cod_inventario' => $cod_inventario,
             'nome_inventario' => $novo_nome_inventario,
         ];
         $inventario_dao->update($dados_inventario);
-        header("Location: lista_inventarios.php"); // Redirecionar de volta para a lista de inventários após a edição.
+        header("Location: lista_inventarios.php"); 
     }
 } catch (Exception $e) {
     echo $e->getMessage();
