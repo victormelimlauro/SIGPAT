@@ -35,9 +35,8 @@ try {
             <li><a href="index.php">Tela inicial</a></li>
 
 
-            <li><a href="/modulos/inventario/cadastrar_inventario.php">Criar Inventário</a></li>
-            <li><a href="/modulos/inventario/lista_inventarios.php">Listar Inventários</a></li>
-            <li><a href="/modulos/inventario/adicionar_item_inventario.php">Adicionar Item ao Inventário</a></li>
+            <li><a href="modulos/inventario/cadastrar_inventario.php">Criar Inventário</a></li>
+            <li><a href="modulos/inventario/lista_inventarios.php">Listar Inventários</a></li>
 
             <li><a href="/modulos/locais/cadastrar_local.php">Cadastrar Local</a></li>
             <li><a href="/modulos/locais/listar_locais.php">Listar Locais</a></li>
