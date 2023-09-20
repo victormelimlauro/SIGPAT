@@ -30,6 +30,7 @@ try {
         $inventario_dao->insert($dados_inventario);
 
         echo "Inventário criado com sucesso!";
+        header("Location: lista_inventarios.php");
     }
 } catch (Exception $e) {
     echo $e->getMessage();
