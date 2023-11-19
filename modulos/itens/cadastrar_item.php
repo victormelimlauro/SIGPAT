@@ -47,13 +47,13 @@ try {
 
             echo"Atualizado";
             var_dump($_POST);
-            //header("Location: listar_locais.php");
+            header("Location: lista_itens.php");
        } else {
         
         $item_dao->insert($dados_item);
         var_dump($dados_item);
            echo"Inserido";
-
+           header("Location: lista_itens.php");
        }
 
     }
@@ -94,62 +94,58 @@ try {
 
 }
 ?>
-<html>
-    <head>
-        <title> Cadastro de produtos </title>
-
-        <style>
-            label, input, select {display: block; padding: 5px}
-        </style>
-
-    </head>
-
-    <body>
-        <?php include '../../includes/cabecalho.php' ?>
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Cadastro de Itens</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<?php include '../../includes/cabecalho.php' ?>
+    <div class="container">
         <main>
-        <h1>Cadastro de itens</h1>
-            <form method="post" action="cadastrar_item.php?salvar=true"> 
-            <label> Código do item:
-                        <input name="cod_item" value="<?= isset($dados_item) ? $dados_item->cod_item : NULL ?>" type="text" readonly/>
-                    </label>
-            <label> Número de patrimônio do Item:
-                        <input name="numpat_item" type="number"  value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>" />
-                    </label>
-            <label>Nome do item:
-                <input name="nome_item" type="text" value="<?= isset($dados_item) ? $dados_item->nome_item : NULL ?>"/>
-            </label>
-
-            <label>Preço:
-                <input name="preco_item" type="number" value="<?= isset($dados_item) ? $dados_item->preco_item : NULL ?>"/>
-            </label>
-
-            <label> Local:
-                <select name="cod_local">
-                    <option>Selecione o local</option>
-
-                    <?php for($i=0; $i<$total_locais; $i++): 
-
-                        $selecionado = " ";
-
-                        if(isset($dados_item->cod_local))
-                        {
-                            $selecionado = ($lista_locais[$i]->cod_local == $dados_item->cod_local) ? "selected" : "";
-                        }
-
+            <h1 class="mt-4 mb-4">Cadastro de Itens</h1>
+            <form method="post" action="cadastrar_item.php?salvar=true">
+                <div class="form-group">
+                    <label for="cod_item">Código do Item:</label>
+                    <input name="cod_item" value="<?= isset($dados_item) ? $dados_item->cod_item : NULL ?>" type="text" class="form-control" readonly/>
+                </div>
+                <div class="form-group">
+                    <label for="numpat_item">Número de Patrimônio do Item:</label>
+                    <input name="numpat_item" type="number" class="form-control" value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>"/>
+                </div>
+                <div class="form-group">
+                    <label for="nome_item">Nome do Item:</label>
+                    <input name="nome_item" type="text" class="form-control" value="<?= isset($dados_item) ? $dados_item->nome_item : NULL ?>"/>
+                </div>
+                <div class="form-group">
+                    <label for="preco_item">Preço:</label>
+                    <input name="preco_item" type="number" class="form-control" value="<?= isset($dados_item) ? $dados_item->preco_item : NULL ?>"/>
+                </div>
+                <div class="form-group">
+                    <label for="cod_local">Local:</label>
+                    <select name="cod_local" class="form-control">
+                        <option>Selecione o Local</option>
+                        <?php for($i=0; $i<$total_locais; $i++): 
+                            $selecionado = (isset($dados_item->cod_local) && $lista_locais[$i]->cod_local == $dados_item->cod_local) ? "selected" : "";
                         ?>
-                    <option value="<?= $lista_locais[$i]->cod_local ?>" <?= $selecionado ?> >
-                        <?= $lista_locais[$i]->nome_local ?> 
-                    </option>
-                    <?php endfor ?>
-
-                </select>
-            </label>
-            <button type="submit"> Salvar </button>
-
+                        <option value="<?= $lista_locais[$i]->cod_local ?>" <?= $selecionado ?>>
+                            <?= $lista_locais[$i]->nome_local ?> 
+                        </option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
             </form>
         </main>
-
         <?php include '../../includes/rodape.php' ?>
-    </body>
+    </div>
+
+    <!-- Adicione o Bootstrap JS e jQuery se necessário -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

@@ -31,13 +31,13 @@ try {
 
             echo"Atualizado";
             var_dump($_POST);
-            //header("Location: listar_locais.php");
+            header("Location: listar_locais.php");
        } else {
         
         $local_dao->insert($dados_local);
         var_dump($dados_local);
            echo"Inserido";
-
+           header("Location: listar_locais.php");
        }
 
 
