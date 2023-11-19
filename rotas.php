@@ -8,7 +8,7 @@ try {
 
         break;
         case '/itens':
-            include '\Views/modulos\produtos\listar_produtos.php';
+            include '/Views/modulos/produtos/listar_produtos.php';
             echo "listar produtos";
 
         break;
