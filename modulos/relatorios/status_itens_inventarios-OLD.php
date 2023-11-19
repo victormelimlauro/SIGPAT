@@ -99,22 +99,29 @@ try {
 
 }
 ?>
-<html>
-    <head>
-        <title> Cadastro de produtos - TESTE </title>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cadastro de produtos - TESTE</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        main {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
 
-        <style>
-            label, input, select {display: block; padding: 5px}
-        </style>
+<?php include '../../includes/cabecalho.php' ?>
 
-    </head>
-
-    <body>
-        <?php include '../../includes/cabecalho.php' ?>
-
-        <main>
-        <h1>Relatórios de Inventários</h1>
-            <form method="post" action="status_itens_inventarios.php"> 
+<main class="container">
+    <h1 class="mb-4">Relatórios de Inventários</h1>
+    <form method="post" action="status_itens_inventarios.php">
             <label> Inventario:
                 <select name="cod_inventario">
                     <option>Selecione o Inventario</option>

@@ -125,16 +125,16 @@ try {
         <!-- Seu formulário aqui -->
     </form>
 
-    <?php if (isset($opcao)): ?>
-        <?php switch ($opcao): ?>
-            <?php case 'itensLocalCorreto': ?>
+    <?php if (isset($opcao)): 
+        switch ($opcao): 
+            case 'itensLocalCorreto': 
                 <h2>Relatório de Itens Localizados no Local Correto</h2>
                 <!-- Conteúdo da tabela para 'itensLocalCorreto' -->
                 <table class="table">
                     <!-- Seus dados da tabela aqui -->
                 </table>
-                <?php break; ?>
-            <?php case 'itensLocalDivergente': ?>
+                 break; 
+            case 'itensLocalDivergente': 
                 <h2>Relatório de Itens Localizados em Local Divergente</h2>
                 <!-- Conteúdo da tabela para 'itensLocalDivergente' -->
                 <table class="table">
