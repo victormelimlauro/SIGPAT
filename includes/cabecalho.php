@@ -95,7 +95,7 @@ try {
         <strong>Dados do usuário</strong>
     <span class="mr-2"> <strong><?= $dados_do_usuario->nome ?></strong> (<?= $dados_do_usuario->cod_usuario ?> - <?= $dados_do_usuario->username ?>)</span>
     <br>
-    <a href="https://sigpat.vmserv.com.br/logout.php" class="btn btn-outline-danger">Sair</a>
+    <a href="https://sigpat.vmserv.com.br/index.php?sair=true" class="btn btn-outline-danger">Sair</a>
   </div>
 
         </div>
