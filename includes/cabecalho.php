@@ -95,7 +95,7 @@ try {
         <strong>Dados do usuário</strong>
     <span class="mr-2"> <strong><?= $dados_do_usuario->nome ?></strong> (<?= $dados_do_usuario->cod_usuario ?> - <?= $dados_do_usuario->username ?>)</span>
     <br>
-    <button class="btn btn-outline-danger">Sair</button>
+    <a href="logout.php" class="btn btn-outline-danger">Sair</a>
   </div>
 
         </div>
