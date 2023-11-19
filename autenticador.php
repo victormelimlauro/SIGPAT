@@ -22,7 +22,7 @@ try {
     if($dados_do_usuario) {
 
         $_SESSION["usuario_logado"] = $dados_do_usuario->cod_usuario;
-        header("Location: index.php");
+        header("Location: inicio");
     } else {
         header("Location: login.php?falhou=true");
     }
