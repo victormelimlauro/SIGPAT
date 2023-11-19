@@ -14,6 +14,8 @@ try {
 
     $lista_itens = $item_dao->getAllRows();
 
+    var_dump($lista_itens);
+
     $total_itens = count($lista_itens);
 
     //var_dump($lista_itens);
