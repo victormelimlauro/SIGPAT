@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-center">
                     <h3 class="text-center">LOGIN - SIGPAT</h3>
                     <a class="text-center"> Sistema Integrado de Gestão de Patrimônio</a>
                 </div>

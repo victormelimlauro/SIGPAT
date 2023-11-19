@@ -6,6 +6,8 @@
         <?php include 'includes/cabecalho.php' ?>
         <main>
 <a>INDEX PAGE</a>
+
+<h3 class="text-center">Bem vindo ao seu sistema de inventário de Patrimônio livre e OPEN-SOURCE !!!</h3>
         </main>
 
         <footer></footer>
