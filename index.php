@@ -3,14 +3,23 @@
 session_start();
 
 if(!isset($_SESSION["usuario_logado"]))
-    header("Location: login.php");
+   // header("Location: login.php");
 
 if(isset($_GET["sair"])) {
     unset($_SESSION["usuario_logado"]);
     header("Location: login.php");
 }
 
+/* $uri =$_SERVER['REQUEST_URI'];
 
+echo($uri);
+
+echo '<hr />';  */
+
+$uri_parse = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+echo $uri_parse;
+include 'rotas.php';
 
 
 
