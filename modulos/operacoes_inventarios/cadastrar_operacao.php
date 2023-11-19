@@ -142,8 +142,9 @@ try {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+<?php include '../../includes/cabecalho.php' ?>
     <div class="container">
-        <?php include '../../includes/cabecalho.php' ?>
+
         <main>
             <h1 class="mt-4 mb-4">Cadastro de Operação de Inventário</h1>
             <form method="post" action="cadastrar_operacao.php?salvar=true"> 
@@ -191,25 +192,25 @@ try {
             </form>
         </main>
 
-            <h1> Tabela de Itens localizados no setor  </h1>
-            <table>
-                <thead>
+        <h1 class="mt-4 mb-4">Tabela de Itens Localizados no Setor</h1>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Código Operação</th>
+                    <th>Número de Patrimônio do Item</th>
+                    <th>Nome do Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for($i=0; $i<$total_itensLocalizadosNoSetor; $i++): ?>
                     <tr>
-                        <th>Codigo operação</th>
-                        <th>Num. Pat. Item</th>
-                        <th>Nome Item</th>
+                        <td><?= $lista_itensLocalizadosNoSetor[$i]->cod_operacoes_inventarios ?></td>
+                        <td><?= $lista_itensLocalizadosNoSetor[$i]->numpat_item ?></td>
+                        <td><?= $lista_itensLocalizadosNoSetor[$i]->nome_item ?></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php for($i=0; $i<$total_itensLocalizadosNoSetor; $i++): ?>
-                    <tr>
-                        <td> <?= $lista_itensLocalizadosNoSetor[$i]->cod_operacoes_inventarios ?> </td>
-                        <td> <?= $lista_itensLocalizadosNoSetor[$i]->numpat_item ?> </td>
-                        <td> <?= $lista_itensLocalizadosNoSetor[$i]->nome_item ?> </td>
-                    </tr>
-                    <?php endfor ?>
-                </tbody>
-            </table>
+                <?php endfor ?>
+            </tbody>
+        </table>
 
             <h1> Tabela de Itens NÃO localizados no setor  </h1>
             <table>
