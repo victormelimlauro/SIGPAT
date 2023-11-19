@@ -108,8 +108,10 @@ try {
                     <label for="nome_local">Nome do Local:</label>
                     <input name="nome_local" value="<?= isset($dados_local) ? $dados_local->nome_local : "" ?>" type="text" class="form-control" />
                 </div>
-                <a href="cadastrar_local.php?excluir=true&cod_local=<?= $dados_local->cod_local ?>" class="btn btn-danger mb-3">Excluir</a>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <div class="form-group">
+                    <a href="cadastrar_local.php?excluir=true&cod_local=<?= $dados_local->cod_local ?>" class="btn btn-danger">Excluir</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
             </form>
         </main>
         <?php include '../../includes/rodape.php' ?>
