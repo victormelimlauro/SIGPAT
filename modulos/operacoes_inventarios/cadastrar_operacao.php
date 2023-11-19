@@ -200,7 +200,7 @@ try {
 
         <div class="col-md 6 col-lg-6 col-sm-12">    
 
-        <h1 class="mt-4 mb-4">Tabela de Itens Localizados no Setor</h1>
+        <h1 class="mt-4 mb-4">Itens Localizados</h1>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -220,7 +220,7 @@ try {
             </tbody>
         </table>
 
-        <h1 class="mt-4 mb-4">Tabela de Itens NÃO Localizados no Setor</h1>
+        <h1 class="mt-4 mb-4">Itens NÃO Localizados</h1>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
                 <tr>

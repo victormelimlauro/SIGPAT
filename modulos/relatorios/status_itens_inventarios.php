@@ -175,7 +175,6 @@ try {
                                 <th scope="col">Nome Item</th>
                                 <th scope="col">Cód. Inventario</th>
                                 <th scope="col">Nome Inventario</th>
-                                <th scope="col">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -188,10 +187,6 @@ try {
                                     <td><?= $lista_relatorio[$i]->nome_item ?></td>
                                     <td><?= $lista_relatorio[$i]->cod_inventario ?></td>
                                     <td><?= $lista_relatorio[$i]->nome_inventario ?></td>
-                                    <td>
-                                        <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-primary">Editar</a>
-                                        <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger">Excluir</a>
-                                    </td>
                                 </tr>
                             <?php endfor ?>
                         </tbody>
@@ -218,7 +213,6 @@ try {
                                 <th>Nome item</th>
                                 <th>Cod. Inventario</th>
                                 <th>Nome Inventario</th>
-                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -233,10 +227,6 @@ try {
                                 <td><?= $lista_relatorio[$i]->nome_item ?></td>
                                 <td><?= $lista_relatorio[$i]->cod_inventario ?></td>
                                 <td><?= $lista_relatorio[$i]->nome_inventario ?></td>
-                                <td>
-                                    <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-primary btn-sm">Editar</a>
-                                    <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger btn-sm">Excluir</a>
-                                </td>
                             </tr>
                             <?php endfor ?>
                         </tbody>
@@ -256,7 +246,6 @@ try {
                                     <th>Nome Local</th>
                                     <th>Num. Plaqueta</th>
                                     <th>Nome item</th>
-                                    <th>Ações</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -266,10 +255,6 @@ try {
                                     <td><?= $lista_relatorio[$i]->nome_local ?></td>
                                     <td><?= $lista_relatorio[$i]->numpat_item ?></td>
                                     <td><?= $lista_relatorio[$i]->nome_item ?></td>
-                                    <td>
-                                        <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-primary btn-sm">Editar</a>
-                                        <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger btn-sm">Excluir</a>
-                                    </td>
                                 </tr>
                                 <?php endfor ?>
                             </tbody>
