@@ -146,7 +146,7 @@ try {
     <div class="container">
 
         <div class="row">
-        <div class="col">       
+        <div class="col-6">       
          <main>
 
 
@@ -198,7 +198,7 @@ try {
 
         </div>
 
-        <div class="col">    
+        <div class="col-6">    
 
         <h1 class="mt-4 mb-4">Tabela de Itens Localizados no Setor</h1>
         <table class="table table-bordered table-striped">
@@ -220,23 +220,23 @@ try {
             </tbody>
         </table>
 
-            <h1> Tabela de Itens NÃO localizados no setor  </h1>
-            <table>
-                <thead>
+        <h1 class="mt-4 mb-4">Tabela de Itens NÃO Localizados no Setor</h1>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Número de Patrimônio do Item</th>
+                    <th>Nome do Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for($i=0; $i<$total_itensNaoLocalizadosNoSetor; $i++): ?>
                     <tr>
-                        <th>Num. Pat. Item</th>
-                        <th>Nome Item</th>
+                        <td><?= $lista_itensNaoLocalizadosNoSetor[$i]->numpat_item ?></td>
+                        <td><?= $lista_itensNaoLocalizadosNoSetor[$i]->nome_item ?></td>
                     </tr>
-                </thead>
-                <tbody>
-                    <?php for($i=0; $i<$total_itensNaoLocalizadosNoSetor; $i++): ?>
-                    <tr>
-                        <td> <?= $lista_itensNaoLocalizadosNoSetor[$i]->numpat_item ?> </td>
-                        <td> <?= $lista_itensNaoLocalizadosNoSetor[$i]->nome_item ?> </td>
-                    </tr>
-                    <?php endfor ?>
-                </tbody>
-            </table>
+                <?php endfor ?>
+            </tbody>
+        </table>
         </div>
 
         </div>
