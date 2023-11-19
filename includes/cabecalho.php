@@ -89,7 +89,7 @@ try {
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link disabled dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"  aria-disabled="true" aria-expanded="false">
-                    Controle de acesso
+                    Controle de acesso *
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Usuários</a></li>
