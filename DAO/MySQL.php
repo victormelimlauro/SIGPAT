@@ -4,9 +4,9 @@
 //DAO - Data Access Object
 class Mysql extends PDO {
     private $host = "localhost";
-    private $usuario="aula01tiagoas";
-    private $senha="aula01tiagoas";
-    private $db="aula01tiagoas";
+    private $usuario="u903350443_sigpat";
+    private $senha="Vv81@n+**";
+    private $db="u903350443_sigpat";
 
     private $opcoes = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
