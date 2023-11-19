@@ -13,7 +13,8 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-center">LOGIN - SIG PAT</h3>
+                    <h3 class="text-center">LOGIN - SIGPAT</h3>
+                    <a class="text-center"> Sistema Integrado de Gestão de Patrimônio</a>
                 </div>
                 <div class="card-body">
                     <form method="post" action="autenticador.php">
