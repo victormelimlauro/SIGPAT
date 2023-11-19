@@ -164,41 +164,39 @@ try {
                 case 'itensLocalCorreto':
                     // Exiba a tabela correspondente para 'itensLocalCorreto'
                    ?> 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Codigo Operação</th>
-                            <th>Codigo local</th>
-                            <th>Nome Local:</th>
-                            <th>Num. Plaqueta:</th>
-                            <th>Nome item:</th>
-                            <th>Cod. Inventario:</th>
-                            <th>Nome Inventario:</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for($i=0; $i<$total_relatorios; $i++): ?>
-                        <tr>
-                            <td> <?= $lista_relatorio[$i]->cod_operacoes_inventarios ?> </td>
-                            <td> <?= $lista_relatorio[$i]->cod_local ?> </td>
-                            <td> <?= $lista_relatorio[$i]->nome_local ?> </td>
-                            <td> <?= $lista_relatorio[$i]->numpat_item ?> </td>
-                            <td> <?= $lista_relatorio[$i]->nome_item ?> </td>
-                            <td> <?= $lista_relatorio[$i]->cod_inventario ?> </td>
-                            <td> <?= $lista_relatorio[$i]->nome_inventario ?> </td>
-                            <td> 
-                                <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>">
-                                    Editar</a> 
-                            </td>
-                            <td> 
-                                <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>">
-                                    Excluir</a> 
-                            </td>
-                        </tr>
-                        <?php endfor ?>
-                    </tbody>
-                </table>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Código Operação</th>
+                    <th scope="col">Código Local</th>
+                    <th scope="col">Nome Local</th>
+                    <th scope="col">Num. Plaqueta</th>
+                    <th scope="col">Nome Item</th>
+                    <th scope="col">Cód. Inventario</th>
+                    <th scope="col">Nome Inventario</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for ($i = 0; $i < $total_relatorios; $i++): ?>
+                    <tr>
+                        <td><?= $lista_relatorio[$i]->cod_operacoes_inventarios ?></td>
+                        <td><?= $lista_relatorio[$i]->cod_local ?></td>
+                        <td><?= $lista_relatorio[$i]->nome_local ?></td>
+                        <td><?= $lista_relatorio[$i]->numpat_item ?></td>
+                        <td><?= $lista_relatorio[$i]->nome_item ?></td>
+                        <td><?= $lista_relatorio[$i]->cod_inventario ?></td>
+                        <td><?= $lista_relatorio[$i]->nome_inventario ?></td>
+                        <td>
+                            <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-primary">Editar</a>
+                            <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger">Excluir</a>
+                        </td>
+                    </tr>
+                <?php endfor ?>
+            </tbody>
+        </table>
+    </div>
                 
                 <?php           
                     break;
