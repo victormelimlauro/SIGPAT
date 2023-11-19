@@ -78,15 +78,25 @@ try {
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>     
-    <title>Cadastro de Local</title>
-    <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Sistemas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        main {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+
+<?php include '../../includes/cabecalho.php' ?>
+
     <div class="container">
-        <?php include '../../includes/cabecalho.php' ?>
         <main>
             <h1 class="mt-4 mb-4">Cadastro de Local</h1>
             <form method="post" action="cadastrar_local.php?salvar=true">
