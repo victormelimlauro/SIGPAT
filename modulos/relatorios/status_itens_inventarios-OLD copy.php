@@ -122,36 +122,44 @@ try {
 <main class="container">
     <h1 class="mb-4">Relatórios de Inventários</h1>
     <form method="post" action="status_itens_inventarios.php">
-    <div class="form-group">
-        <label for="cod_inventario">Inventário:</label>
-        <select class="form-control" id="cod_inventario" name="cod_inventario">
-            <option>Selecione o Inventário</option>
-            <?php for($i=0; $i<$total_inventarios; $i++): 
-                $selecionado = isset($dados_relatorio['cod_inventario']) && $lista_inventarios[$i]->cod_inventario == $dados_relatorio['cod_inventario'] ? "selected" : "";
-            ?>
-                <option value="<?= $lista_inventarios[$i]->cod_inventario ?>" <?= $selecionado ?>>
-                    <?= $lista_inventarios[$i]->nome_inventario ?> 
-                </option>
-            <?php endfor ?>
-        </select>
-    </div>
+            <label> Inventario:
+                <select name="cod_inventario">
+                    <option>Selecione o Inventario</option>
 
-    <div class="form-group">
-        <label for="opcao">Tipo de relatório:</label>
-        <select class="form-control" id="opcao" name="opcao">
-            <option>Selecione o local</option>
-            <?php
-                $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : "";
-            ?>
-            <option value="itensLocalCorreto" <?= $opcao === "itensLocalCorreto" ? "selected" : "" ?>>Itens localizados no local correto</option>
-            <option value="itensLocalDivergente" <?= $opcao === "itensLocalDivergente" ? "selected" : "" ?>>Itens localizados em local divergente</option> 
-            <option value="itensNaoLocalizados" <?= $opcao === "itensNaoLocalizados" ? "selected" : "" ?>>Itens Não localizados</option>
-        </select>
-    </div>
+                    <?php for($i=0; $i<$total_inventarios; $i++): 
 
-    <button type="submit" class="btn btn-primary">Buscar relatório</button>
-</form>
+                        $selecionado = " ";
 
+                        if(isset($dados_relatorio['cod_inventario']))
+                        {
+                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_relatorio['cod_inventario']) ? "selected" : "";
+                        }
+
+                        ?>
+                    <option value="<?= $lista_inventarios[$i]->cod_inventario ?>" <?= $selecionado ?> >
+                        <?= $lista_inventarios[$i]->nome_inventario ?> 
+                    </option>
+                    <?php endfor ?>
+
+                </select>
+            </label>
+            <label> Tipo de relatório:
+                <select name="opcao">
+                    <option>Selecione o local</option>
+                    <?php
+                    $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : ""; // Recupere o valor selecionado, se houver
+                    ?>
+
+                    <option value="itensLocalCorreto" <?= $opcao === "itensLocalCorreto" ? "selected" : "" ?> >Itens localizados no local correto</option>
+                    <option value="itensLocalDivergente" <?= $opcao === "itensLocalDivergente" ? "selected" : "" ?> >Itens localizados em local divergente</option> 
+                    <option value="itensNaoLocalizados" <?= $opcao === "itensNaoLocalizados" ? "selected" : "" ?> >Itens Não localizados</option>
+                </select>
+            </label>
+
+            
+            <button type="submit"> Buscar relatório </button>
+
+            </form>
             <?php
     // Adicione o código abaixo para exibir as tabelas com base na opção selecionada
 
