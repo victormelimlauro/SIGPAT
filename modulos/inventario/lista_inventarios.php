@@ -47,8 +47,8 @@ try {
                     <td><?= $lista_inventarios[$i]->cod_inventario ?></td>
                     <td><?= $lista_inventarios[$i]->nome_inventario ?></td>
                     <td>
-                        <a href="cadastrar_inventario.php?excluir=true&cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>" class="btn btn-danger btn-sm">Excluir</a>
                         <a href="alterar_inventario.php?cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="cadastrar_inventario.php?excluir=true&cod_inventario=<?= $lista_inventarios[$i]->cod_inventario ?>" class="btn btn-danger btn-sm">Excluir</a>
                     </td>
                 </tr>
             <?php endfor ?>
