@@ -19,7 +19,7 @@ class RelatorioDAO {
         INNER JOIN inventarios  as d on a.cod_inventario = d.cod_inventario
         INNER JOIN usuarios  as e on a.cod_usuario = e.cod_usuario
         INNER JOIN locais as f on c.cod_local= f.cod_local
-        WHERE a.cod_inventario = ? AND a.cod_local = C.cod_local");
+        WHERE a.cod_inventario = ? AND a.cod_local = c.cod_local");
         $stmt->bindValue(1, $dados_relatorio['cod_inventario']);
         $stmt->execute();
         
@@ -40,7 +40,7 @@ class RelatorioDAO {
         INNER JOIN inventarios  as d on a.cod_inventario = d.cod_inventario
         INNER JOIN usuarios  as e on a.cod_usuario = e.cod_usuario
         INNER JOIN locais as f on c.cod_local= f.cod_local
-        WHERE a.cod_inventario = ? AND a.cod_local <> C.cod_local");
+        WHERE a.cod_inventario = ? AND a.cod_local <> c.cod_local");
         $stmt->bindValue(1, $dados_relatorio['cod_inventario']);
         $stmt->execute();
         
