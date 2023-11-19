@@ -51,6 +51,7 @@ try {
         <thead>
             <tr>
                 <th scope="col">Código Item</th>
+                <th scope="col">Nº Patrimônio</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Ações</th>
             </tr>
@@ -59,6 +60,7 @@ try {
             <?php for($i=0; $i<$total_itens; $i++): ?>
             <tr>
                 <td><?= $lista_itens[$i]->cod_item ?></td>
+                <td><?= $lista_itens[$i]->numpat_item ?></td>
                 <td><?= $lista_itens[$i]->nome_item ?></td>
                 <td>
                     <a href="cadastrar_item.php?cod_item=<?= $lista_itens[$i]->cod_item ?>" class="btn btn-primary btn-sm">Editar</a>
