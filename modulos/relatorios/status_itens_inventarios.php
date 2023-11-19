@@ -162,105 +162,17 @@ try {
             <?php case 'itensLocalCorreto': ?>
                 <h2>Relatório de Itens Localizados no Local Correto</h2>
                 <!-- Conteúdo da tabela para 'itensLocalCorreto' -->
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Codigo Operação</th>
-                            <th>Codigo local</th>
-                            <th>Nome Local:</th>
-                            <th>Num. Plaqueta:</th>
-                            <th>Nome item:</th>
-                            <th>Cod. Inventario:</th>
-                            <th>Nome Inventario:</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for($i=0; $i<$total_relatorios; $i++): ?>
-                        <tr>
-                            <td><?= $lista_relatorio[$i]->cod_operacoes_inventarios ?></td>
-                            <td><?= $lista_relatorio[$i]->cod_local ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_local ?></td>
-                            <td><?= $lista_relatorio[$i]->numpat_item ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_item ?></td>
-                            <td><?= $lista_relatorio[$i]->cod_inventario ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_inventario ?></td>
-                            <td>
-                                <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-info btn-sm">Editar</a>
-                                <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger btn-sm">Excluir</a>
-                            </td>
-                        </tr>
-                        <?php endfor ?>
-                    </tbody>
-                </table>
+                <?php include 'tabela_itens_local_correto.php'; ?>
                 <?php break; ?>
             <?php case 'itensLocalDivergente': ?>
                 <h2>Relatório de Itens Localizados em Local Divergente</h2>
                 <!-- Conteúdo da tabela para 'itensLocalDivergente' -->
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Codigo Operação</th>
-                            <th>Codigo local encontrado</th>
-                            <th>Nome Local encontrado:</th>
-                            <th>Codigo local cadastrado</th>
-                            <th>Nome Local cadastrado:</th>
-                            <th>Num. Plaqueta:</th>
-                            <th>Nome item:</th>
-                            <th>Cod. Inventario:</th>
-                            <th>Nome Inventario:</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for($i=0; $i<$total_relatorios; $i++): ?>
-                        <tr>
-                            <td><?= $lista_relatorio[$i]->cod_operacoes_inventarios ?></td>
-                            <td><?= $lista_relatorio[$i]->cod_local_encontrado ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_local_encontrado ?></td>
-                            <td><?= $lista_relatorio[$i]->cod_local_cadastrado ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_local_cadastrado ?></td>
-                            <td><?= $lista_relatorio[$i]->numpat_item ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_item ?></td>
-                            <td><?= $lista_relatorio[$i]->cod_inventario ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_inventario ?></td>
-                            <td>
-                                <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-info btn-sm">Editar</a>
-                                <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger btn-sm">Excluir</a>
-                            </td>
-                        </tr>
-                        <?php endfor ?>
-                    </tbody>
-                </table>
+                <?php include 'tabela_itens_local_divergente.php'; ?>
                 <?php break; ?>
             <?php case 'itensNaoLocalizados': ?>
                 <h2>Relatório de Itens Não Localizados</h2>
                 <!-- Conteúdo da tabela para 'itensNaoLocalizados' -->
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Codigo local</th>
-                            <th>Nome Local:</th>
-                            <th>Num. Plaqueta:</th>
-                            <th>Nome item:</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php for($i=0; $i<$total_relatorios; $i++): ?>
-                        <tr>
-                            <td><?= $lista_relatorio[$i]->cod_local ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_local ?></td>
-                            <td><?= $lista_relatorio[$i]->numpat_item ?></td>
-                            <td><?= $lista_relatorio[$i]->nome_item ?></td>
-                            <td>
-                                <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-info btn-sm">Editar</a>
-                                <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger btn-sm">Excluir</a>
-                            </td>
-                        </tr>
-                        <?php endfor ?>
-                    </tbody>
-                </table>
+                <?php include 'tabela_itens_nao_localizados.php'; ?>
                 <?php break; ?>
             <?php default: ?>
                 <!-- Opção inválida -->
