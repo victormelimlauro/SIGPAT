@@ -133,21 +133,21 @@ try {
                 <table class="table">
                     <!-- Seus dados da tabela aqui -->
                 </table>
-            <?php break; ?>
+                <?php break; ?>
             <?php case 'itensLocalDivergente': ?>
                 <h2>Relatório de Itens Localizados em Local Divergente</h2>
                 <!-- Conteúdo da tabela para 'itensLocalDivergente' -->
                 <table class="table">
                     <!-- Seus dados da tabela aqui -->
                 </table>
-            <?php break; ?>
+                <?php break; ?>
             <?php case 'itensNaoLocalizados': ?>
                 <h2>Relatório de Itens Não Localizados</h2>
                 <!-- Conteúdo da tabela para 'itensNaoLocalizados' -->
                 <table class="table">
                     <!-- Seus dados da tabela aqui -->
                 </table>
-            <?php break; ?>
+                <?php break; ?>
             <?php default: ?>
                 <p>Opção inválida.</p>
         <?php endswitch; ?>
@@ -161,4 +161,3 @@ try {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
-
