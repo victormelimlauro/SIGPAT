@@ -2,8 +2,10 @@
 
 session_start();
 
-if(!isset($_SESSION["usuario_logado"]))
-   // header("Location: login.php");
+if(!isset($_SESSION["usuario_logado"])) {
+
+ header("Location: login.php");
+}
 
 if(isset($_GET["sair"])) {
     var_dump($_GET["sair"]);
