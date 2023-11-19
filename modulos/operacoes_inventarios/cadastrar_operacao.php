@@ -133,76 +133,63 @@ try {
 
 }
 ?>
-<html>
-    <head>
-        <title> Cadastro de produtos - TESTE </title>
-
-        <style>
-            label, input, select {display: block; padding: 5px}
-        </style>
-
-    </head>
-
-    <body>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Cadastro de Operação de Inventário</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
         <?php include '../../includes/cabecalho.php' ?>
-
         <main>
-        <h1>Cadastro de Operação de Inventário</h1>
+            <h1 class="mt-4 mb-4">Cadastro de Operação de Inventário</h1>
             <form method="post" action="cadastrar_operacao.php?salvar=true"> 
-            <label> Inventario:
-                <select name="cod_inventario">
-                    <option>Selecione o Inventario</option>
-
-                    <?php for($i=0; $i<$total_inventarios; $i++): 
-
-                        $selecionado = " ";
-                        if(isset($dados_operacao_inventario['cod_inventario']))
-                        {
-                            $selecionado = ($lista_inventarios[$i]->cod_inventario == $dados_operacao_inventario['cod_inventario']) ? "selected" : "";
-                        }
-
+                <div class="form-group">
+                    <label for="cod_inventario">Inventário:</label>
+                    <select name="cod_inventario" class="form-control">
+                        <option>Selecione o Inventário</option>
+                        <?php for($i=0; $i<$total_inventarios; $i++): 
+                            $selecionado = (isset($dados_operacao_inventario['cod_inventario']) && $lista_inventarios[$i]->cod_inventario == $dados_operacao_inventario['cod_inventario']) ? "selected" : "";
                         ?>
-                    <option value="<?= $lista_inventarios[$i]->cod_inventario ?>" <?= $selecionado ?> >
-                        <?= $lista_inventarios[$i]->nome_inventario ?> 
-                    </option>
-                    <?php endfor ?>
-
-                </select>
-            </label>
-            <label> Local:
-                <select name="cod_local">
-                    <option>Selecione o local</option>
-
-                    <?php for($i=0; $i<$total_locais; $i++): 
-
-                        $selecionado = " ";
-
-                        if(isset($dados_operacao_inventario['cod_local']))
-                        {
-                            $selecionado = ($lista_locais[$i]->cod_local == $dados_operacao_inventario['cod_local']) ? "selected" : "";
-                        }
-
+                        <option value="<?= $lista_inventarios[$i]->cod_inventario ?>" <?= $selecionado ?>>
+                            <?= $lista_inventarios[$i]->nome_inventario ?> 
+                        </option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cod_local">Local:</label>
+                    <select name="cod_local" class="form-control">
+                        <option>Selecione o Local</option>
+                        <?php for($i=0; $i<$total_locais; $i++): 
+                            $selecionado = (isset($dados_operacao_inventario['cod_local']) && $lista_locais[$i]->cod_local == $dados_operacao_inventario['cod_local']) ? "selected" : "";
                         ?>
-                    <option value="<?= $lista_locais[$i]->cod_local ?>" <?= $selecionado ?> >
-                        <?= $lista_locais[$i]->nome_local ?> 
-                    </option>
-                    <?php endfor ?>
-
-                </select>
-            </label>
-            <label> Número de patrimônio do Item:
-                        <input name="numpat_item" type="text"  value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>" />
-            </label>
-            <label> Usuário responsavél - Codigo
-                        <input name="cod_usuario" type="text" readonly  value="<?= $dados_do_usuario->cod_usuario ?>" />
-            </label>
-            <label> Usuário responsavél - Nome / username
-                        <input name="nome_usuario" type="text" readonly  value="<?= $dados_do_usuario->nome ?> / <?= $dados_do_usuario->username ?> " />
-            </label>
-            <button type="submit"> Inserir Operação </button>
-                    <!-- Segundo botão com ação diferente -->
-            <button type="submit" formaction="cadastrar_operacao.php?listar=true">Listar itens</button>
+                        <option value="<?= $lista_locais[$i]->cod_local ?>" <?= $selecionado ?>>
+                            <?= $lista_locais[$i]->nome_local ?> 
+                        </option>
+                        <?php endfor ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="numpat_item">Número de Patrimônio do Item:</label>
+                    <input name="numpat_item" type="text" class="form-control" value="<?= isset($dados_item) ? $dados_item->numpat_item : NULL ?>"/>
+                </div>
+                <div class="form-group">
+                    <label for="cod_usuario">Usuário Responsável - Código:</label>
+                    <input name="cod_usuario" type="text" class="form-control" readonly value="<?= $dados_do_usuario->cod_usuario ?>"/>
+                </div>
+                <div class="form-group">
+                    <label for="nome_usuario">Usuário Responsável - Nome / Username:</label>
+                    <input name="nome_usuario" type="text" class="form-control" readonly value="<?= $dados_do_usuario->nome ?> / <?= $dados_do_usuario->username ?>"/>
+                </div>
+                <button type="submit" class="btn btn-primary">Inserir Operação</button>
+                <!-- Segundo botão com ação diferente -->
+                <button type="submit" formaction="cadastrar_operacao.php?listar=true" class="btn btn-secondary">Listar Itens</button>
             </form>
+        </main>
 
             <h1> Tabela de Itens localizados no setor  </h1>
             <table>
