@@ -23,6 +23,7 @@ try {
 
         default:
             echo "rota inválida";
+            include 'Views/modulos/Iniciop/inicio.php';
         break;
     }
 

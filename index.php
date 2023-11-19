@@ -29,19 +29,7 @@ include 'rotas.php';
 
 ?>
 
-<html>
-    <head>
-        <title>Sistemas</title>
-    </head>
-    <body>
-        <?php include 'includes/cabecalho.php' ?>
-        <main>
-<a>INDEX PAGE</a>
-        </main>
 
-        <footer></footer>
-    </body>
-</html>
 
 <!-- <h1> Bem vindo <strong> <?= $dados_do_usuario->nome ?> </strong> ( <?= $dados_do_usuario->cod_usuario ?> - <?= $dados_do_usuario->username ?>) a area restrita</h1>
 
