@@ -114,8 +114,8 @@ try {
                 </div>
             </form>
         </main>
-        <?php include '../../includes/rodape.php' ?>
     </div>
+    <?php include '../../includes/rodape.php' ?>
 
     <!-- Adicione o Bootstrap JS e jQuery se necessário -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
