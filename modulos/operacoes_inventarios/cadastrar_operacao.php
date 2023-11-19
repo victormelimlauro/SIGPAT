@@ -146,7 +146,7 @@ try {
     <div class="container">
 
         <div class="row">
-        <div class="col-6">       
+        <div class="col-6 col-sm-12">       
          <main>
 
 
@@ -198,7 +198,7 @@ try {
 
         </div>
 
-        <div class="col-6">    
+        <div class="col-6 col-sm-12">    
 
         <h1 class="mt-4 mb-4">Tabela de Itens Localizados no Setor</h1>
         <table class="table table-bordered table-striped">
