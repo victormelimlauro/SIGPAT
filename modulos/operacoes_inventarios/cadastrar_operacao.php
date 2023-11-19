@@ -145,7 +145,11 @@ try {
 <?php include '../../includes/cabecalho.php' ?>
     <div class="container">
 
-        <main>
+        <div class="row">
+        <div class="col">       
+         <main>
+
+
             <h1 class="mt-4 mb-4">Cadastro de Operação de Inventário</h1>
             <form method="post" action="cadastrar_operacao.php?salvar=true"> 
                 <div class="form-group">
@@ -192,6 +196,10 @@ try {
             </form>
         </main>
 
+        </div>
+
+        <div class="col">    
+
         <h1 class="mt-4 mb-4">Tabela de Itens Localizados no Setor</h1>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">
@@ -229,7 +237,9 @@ try {
                     <?php endfor ?>
                 </tbody>
             </table>
-        </main>
+        </div>
+
+        </div>
 
         <?php include '../../includes/rodape.php' ?>
     </body>
