@@ -122,60 +122,24 @@ try {
 <main class="container">
     <h1 class="mb-4">Relatórios de Inventários</h1>
     <form method="post" action="status_itens_inventarios.php">
-        <div class="form-group">
-            <label for="cod_inventario">Inventário:</label>
-            <select class="form-control" name="cod_inventario" id="cod_inventario">
-                <option value="">Selecione o Inventário</option>
-                <?php for($i=0; $i<$total_inventarios; $i++): ?>
-                    <?php $selecionado = isset($dados_relatorio['cod_inventario']) && $lista_inventarios[$i]->cod_inventario == $dados_relatorio['cod_inventario'] ? "selected" : ""; ?>
-                    <option value="<?= $lista_inventarios[$i]->cod_inventario ?>" <?= $selecionado ?>>
-                        <?= $lista_inventarios[$i]->nome_inventario ?> 
-                    </option>
-                <?php endfor ?>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="opcao">Tipo de relatório:</label>
-            <select class="form-control" name="opcao" id="opcao">
-                <option value="">Selecione o tipo de relatório</option>
-                <?php
-                $opcao = isset($_POST['opcao']) ? $_POST['opcao'] : "";
-                $opcoes = array(
-                    'itensLocalCorreto' => 'Itens localizados no local correto',
-                    'itensLocalDivergente' => 'Itens localizados em local divergente',
-                    'itensNaoLocalizados' => 'Itens Não localizados'
-                );
-                ?>
-                <?php foreach ($opcoes as $valor => $descricao): ?>
-                    <option value="<?= $valor ?>" <?= $opcao === $valor ? "selected" : "" ?>>
-                        <?= $descricao ?>
-                    </option>
-                <?php endforeach ?>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Buscar relatório</button>
+        <!-- Seu formulário aqui -->
     </form>
 
     <?php if (isset($opcao)): ?>
-        <!-- Conteúdo específico para cada tipo de relatório -->
         <?php switch ($opcao): ?>
             <?php case 'itensLocalCorreto': ?>
                 <h2>Relatório de Itens Localizados no Local Correto</h2>
                 <!-- Conteúdo da tabela para 'itensLocalCorreto' -->
-                <?php include 'tabela_itens_local_correto.php'; ?>
-                <?php break; ?>
+            <?php break; ?>
             <?php case 'itensLocalDivergente': ?>
                 <h2>Relatório de Itens Localizados em Local Divergente</h2>
                 <!-- Conteúdo da tabela para 'itensLocalDivergente' -->
-                <?php include 'tabela_itens_local_divergente.php'; ?>
-                <?php break; ?>
+            <?php break; ?>
             <?php case 'itensNaoLocalizados': ?>
                 <h2>Relatório de Itens Não Localizados</h2>
                 <!-- Conteúdo da tabela para 'itensNaoLocalizados' -->
-                <?php include 'tabela_itens_nao_localizados.php'; ?>
-                <?php break; ?>
+            <?php break; ?>
             <?php default: ?>
-                <!-- Opção inválida -->
                 <p>Opção inválida.</p>
         <?php endswitch; ?>
     <?php endif; ?>
