@@ -101,7 +101,7 @@ try {
         </ul>
    
         <div class="navbar-text ml-auto text-left" style="width:20%">
-        <strong>Dados do usuário</strong>
+        <strong>Dados do usuário:</strong>
         <br>
     <span class="mr-2"> <strong><?= $dados_do_usuario->nome ?></strong> (<?= $dados_do_usuario->cod_usuario ?> - <?= $dados_do_usuario->username ?>)</span>
     <br>
