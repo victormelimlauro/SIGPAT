@@ -4,7 +4,7 @@
 <div class="container pt-3 pb-3">
 <div class="site-info">
 © 2023 <a href="https://sigpat.vmserv.com.br">SIGPAT</a> <span class="sep"> | </span>
-<a class="credits" href="https://vmserv.com.br/" target="_blank" title="Desenvolvedor do sistema" alt="Desenvolvido por vmserv.com.br">Desenvolvido por VM SERV | Soluções em T.I. vmserv.com.br</a>
+<span class="credits">Desenvolvido por VM SERV | Soluções em T.I. <a href="https://vmserv.com.br/" target="_blank" title="Desenvolvedor do sistema" alt="Desenvolvido por vmserv.com.br">vmserv.com.br</a></span>
 </div>
 </div>
 </footer>
