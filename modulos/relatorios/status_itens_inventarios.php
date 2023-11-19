@@ -248,37 +248,33 @@ try {
                     
                     // Exiba a tabela correspondente para 'itensNaoLocalizados'
                     ?>
-                    <table>
-                <thead>
-                    <tr>
-                        <th>Codigo local</th>
-                        <th>Nome Local:</th>
-                        <th>Num. Plaqueta:</th>
-                        <th>Nome item:</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php for($i=0; $i<$total_relatorios; $i++): ?>
-                    <tr>
-                        
-                        <td> <?= $lista_relatorio[$i]->cod_local ?> </td>
-                        <td> <?= $lista_relatorio[$i]->nome_local ?> </td>
-                        <td> <?= $lista_relatorio[$i]->numpat_item ?> </td>
-                        <td> <?= $lista_relatorio[$i]->nome_item ?> </td>
-
-                        <td> 
-                            <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>">
-                                Editar</a> 
-                        </td>
-                        <td> 
-                            <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>">
-                                Excluir</a> 
-                        </td>
-                    </tr>
-                    <?php endfor ?>
-                </tbody>
-            </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Codigo local</th>
+                                    <th>Nome Local</th>
+                                    <th>Num. Plaqueta</th>
+                                    <th>Nome item</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php for($i=0; $i<$total_relatorios; $i++): ?>
+                                <tr>
+                                    <td><?= $lista_relatorio[$i]->cod_local ?></td>
+                                    <td><?= $lista_relatorio[$i]->nome_local ?></td>
+                                    <td><?= $lista_relatorio[$i]->numpat_item ?></td>
+                                    <td><?= $lista_relatorio[$i]->nome_item ?></td>
+                                    <td>
+                                        <a href="cadastrar_local.php?cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-primary btn-sm">Editar</a>
+                                        <a href="cadastrar_local.php?excluir=true&cod_local=<?= $lista_locais[$i]->cod_local ?>" class="btn btn-danger btn-sm">Excluir</a>
+                                    </td>
+                                </tr>
+                                <?php endfor ?>
+                            </tbody>
+                        </table>
+                    </div>
                     <?php
                           break;
                 default:
