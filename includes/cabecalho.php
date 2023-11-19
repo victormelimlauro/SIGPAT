@@ -48,9 +48,7 @@ try {
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/modulos/inventario/cadastrar_inventario.php">Cadastrar Inventário</a></li>
-                <li><a class="dropdown-item" href="/modulos/inventario/lista_inventarios.php">Listar inventarios</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="/modulos/inventario/lista_inventarios.php">Listar inventarios</a></li>>
             </ul>
             </li>
             <li class="nav-item dropdown">
@@ -88,6 +86,17 @@ try {
             </li>
             <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Categoria Ativo *</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Controle de acesso
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Usuários</a></li>
+                    <li><a class="dropdown-item" href="#">Permissões</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Registros</a></li>
+                </ul>
             </li>
         </ul>
    
