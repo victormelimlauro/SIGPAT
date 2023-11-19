@@ -87,8 +87,8 @@ try {
             <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Categoria Ativo *</a>
             </li>
-            <li class="nav-item disabled dropdown" aria-disabled="true">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <li class="nav-item dropdown">
+                <a class="nav-link disabled dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"  aria-disabled="true" aria-expanded="false">
                     Controle de acesso
                 </a>
                 <ul class="dropdown-menu">
