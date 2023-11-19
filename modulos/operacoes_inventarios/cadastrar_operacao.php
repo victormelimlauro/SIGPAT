@@ -199,9 +199,9 @@ try {
             <label> Usuário responsavél - Nome / username
                         <input name="nome_usuario" type="text" readonly  value="<?= $dados_do_usuario->nome ?> / <?= $dados_do_usuario->username ?> " />
             </label>
-            <button type="submit"> Salvar </button>
+            <button type="submit"> Inserir Operação </button>
                     <!-- Segundo botão com ação diferente -->
-            <button type="submit" formaction="cadastrar_operacao.php?listar=true">Ação Diferente</button>
+            <button type="submit" formaction="cadastrar_operacao.php?listar=true">Listar itens</button>
             </form>
 
             <h1> Tabela de Itens localizados no setor  </h1>

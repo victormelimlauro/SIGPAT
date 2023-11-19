@@ -21,6 +21,11 @@ try {
             echo "vai remover um produto";
         break;
 
+        case 'inicio';
+            echo "rota INICIO" ;
+            include 'Views/modulos/Inicio/inicio.php';
+        break;
+
         default:
             echo "rota inválida";
             include 'Views/modulos/Inicio/inicio.php';

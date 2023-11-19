@@ -76,32 +76,38 @@ try {
 
 }
 ?>
+<!DOCTYPE html>
 <html lang="pt-br">
-    <head>     
-        <title>CADASTRA LOCAL</title>
-        <meta charset="utf8" />
-    </head>
-    <body>
-        <div id="global">
-            <?php include '../../includes/cabecalho.php' ?>
-            <main>
-            <h1>Cadastro de local</h1>
+<head>     
+    <title>Cadastro de Local</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <?php include '../../includes/cabecalho.php' ?>
+        <main>
+            <h1 class="mt-4 mb-4">Cadastro de Local</h1>
             <form method="post" action="cadastrar_local.php?salvar=true">
-                    <label> Código do local:
-                        <input name="cod_local" value="<?= isset($dados_local) ? $dados_local->cod_local : NULL ?>" type="text" readonly/>
-                    </label>
-                    <label>Nome do local:
-                        <input name="nome_local" value="<?= isset($dados_local) ? $dados_local->nome_local : "" ?> " type="text" />
+                <div class="form-group">
+                    <label for="cod_local">Código do Local:</label>
+                    <input name="cod_local" value="<?= isset($dados_local) ? $dados_local->cod_local : NULL ?>" type="text" class="form-control" readonly/>
+                </div>
+                <div class="form-group">
+                    <label for="nome_local">Nome do Local:</label>
+                    <input name="nome_local" value="<?= isset($dados_local) ? $dados_local->nome_local : "" ?>" type="text" class="form-control" />
+                </div>
+                <a href="cadastrar_local.php?excluir=true&cod_local=<?= $dados_local->cod_local ?>" class="btn btn-danger mb-3">Excluir</a>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </main>
+        <?php include '../../includes/rodape.php' ?>
+    </div>
 
-                    </label>
-                    <a href="cadastrar_local.php?excluir=true&cod_local=<?=  $dados_local->cod_local ?>">
-                    Excluir
-                    </a>
-                    <button type="submit"> Salvar </button>
-                </form>
-            </main>
-            <?php include '../../includes/rodape.php' ?>
-        </div>
-
-    </body>
+    <!-- Adicione o Bootstrap JS e jQuery se necessário -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>
