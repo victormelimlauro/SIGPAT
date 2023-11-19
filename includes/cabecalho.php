@@ -48,7 +48,7 @@ try {
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/modulos/inventario/cadastrar_inventario.php">Cadastrar Inventário</a></li>
-                <li><a class="dropdown-item" href="/modulos/inventario/lista_inventarios.php">Listar inventarios</a></li>>
+                <li><a class="dropdown-item" href="/modulos/inventario/lista_inventarios.php">Listar inventarios</a></li>
             </ul>
             </li>
             <li class="nav-item dropdown">
