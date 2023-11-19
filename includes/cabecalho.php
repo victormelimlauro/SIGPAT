@@ -77,7 +77,7 @@ try {
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/modulos/operacoes_inventarios/cadastrar_operacao.php">Cadastrar Operação</a></li>
-                <li><a class="dropdown-item" href="/modulos/operacoes_inventarios/listar_operacoes.php">Listar Operaõess</a></li>
+                <li><a class="dropdown-item" href="/modulos/operacoes_inventarios/listar_operacoes.php">Listar Operações</a></li>
             </ul>
             </li>
             <li class="nav-item">
