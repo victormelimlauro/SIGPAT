@@ -85,7 +85,7 @@ try {
         <div id="global">
             <?php include '../../includes/cabecalho.php' ?>
             <main>
-            <h1>Criar Local</h1>
+            <h1>Cadastro de local</h1>
             <form method="post" action="cadastrar_local.php?salvar=true">
                     <label> Código do local:
                         <input name="cod_local" value="<?= isset($dados_local) ? $dados_local->cod_local : NULL ?>" type="text" readonly/>

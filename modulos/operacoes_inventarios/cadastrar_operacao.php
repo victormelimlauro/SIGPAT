@@ -147,7 +147,7 @@ try {
         <?php include '../../includes/cabecalho.php' ?>
 
         <main>
-        <h1>Criar Operação de Inventário</h1>
+        <h1>Cadastro de Operação de Inventário</h1>
             <form method="post" action="cadastrar_operacao.php?salvar=true"> 
             <label> Inventario:
                 <select name="cod_inventario">
