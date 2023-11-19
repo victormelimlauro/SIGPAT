@@ -113,7 +113,7 @@ try {
         <?php include '../../includes/cabecalho.php' ?>
 
         <main>
-
+        <h1>Relatórios de Inventários</h1>
             <form method="post" action="status_itens_inventarios.php"> 
             <label> Inventario:
                 <select name="cod_inventario">

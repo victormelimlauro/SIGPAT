@@ -108,7 +108,7 @@ try {
         <?php include '../../includes/cabecalho.php' ?>
 
         <main>
-
+        <h1>Criar Inventário</h1>
             <form method="post" action="cadastrar_item.php?salvar=true"> 
             <label> Código do item:
                         <input name="cod_item" value="<?= isset($dados_item) ? $dados_item->cod_item : NULL ?>" type="text" readonly/>

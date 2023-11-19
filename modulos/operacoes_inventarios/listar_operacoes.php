@@ -44,7 +44,7 @@ try {
 <?php include '../../includes/cabecalho.php' ?>
 
 <main class="container">
-    <h1 class="mb-4">Listar Operações</h1>
+    <h1 class="mb-4">Listar Operações de Inventario</h1>
     <div class="table-responsive">
         <table class="table">
             <thead>
