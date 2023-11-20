@@ -5,6 +5,7 @@ try {
     {
         case '/':
             echo "sou a tela inicial";
+            include 'Views/modulos/Inicio/inicio.php';
 
         break;
         case '/itens':
