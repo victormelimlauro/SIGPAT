@@ -40,13 +40,15 @@ try {
             flex: 1;
         }
 
-        @media (min-height: 100vh) {
-            footer {
-               
-                bottom: 0;
-                width: 100%;
-            }
+        footer {
+            background-color: #f8f9fa;
+            
+            text-align: center;
+            position: relative;
+            bottom: 10; /* Mantém o rodapé na parte inferior da viewport */
+            width: 100%;
         }
+        
     </style> 
 </head>
 <body>
