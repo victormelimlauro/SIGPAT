@@ -41,8 +41,7 @@ try {
         }
 
         footer {
-            background-color: #f8f9fa;
-            
+            background-color: #f8f9fa;   
             text-align: center;
             position: relative;
             bottom: 0; /* Mantém o rodapé na parte inferior da viewport */
