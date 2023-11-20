@@ -1,3 +1,4 @@
+</main>
 <footer>
 
   <div class="row site-info bg-body-tertiary">
@@ -11,3 +12,5 @@
   </div>
 
 </footer>
+
+</body> 
