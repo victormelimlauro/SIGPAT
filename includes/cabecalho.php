@@ -33,20 +33,19 @@ try {
         body {
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Define a altura mínima da viewport como 100% da altura da tela */
-            margin: 0;
+            min-height: 100vh;
         }
 
         main {
-            flex: 1; /* Faz com que o conteúdo principal ocupe o espaço restante */
+            flex: 1;
         }
 
-        footer {
-            background-color: #f8f9fa;   
-            text-align: center;
-            position: relative;
-            bottom: 0; /* Mantém o rodapé na parte inferior da viewport */
-            width: 100%;
+        @media (min-height: 100vh) {
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
         }
     </style> 
 </head>
