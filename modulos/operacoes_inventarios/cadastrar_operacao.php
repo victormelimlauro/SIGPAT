@@ -133,8 +133,6 @@ try {
 
 }
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
 <head>
     <title>Cadastro de Operação de Inventário</title>
     <meta charset="utf-8" />
