@@ -15,6 +15,7 @@ try {
 
     $stmt->execute(array('marcador_cod_usuario' => $_SESSION['usuario_logado']));
 
+    
     $dados_do_usuario = $stmt->fetchObject();
 } catch (Exception $e) {
     echo $e->getMessage();
