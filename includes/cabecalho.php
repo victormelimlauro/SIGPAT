@@ -29,25 +29,7 @@ try {
     <title>Menu - SIGPAT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            function setFooterPosition() {
-                var bodyHeight = $("body").height();
-                var windowHeight = $(window).height();
 
-                if (bodyHeight < windowHeight) {
-                    $("footer").css("position", "fixed").css("bottom", "0").css("width", "100%");
-                } else {
-                    $("footer").css("position", "static");
-                }
-            }
-
-            // Chama a função no carregamento da página e no redimensionamento da janela
-            setFooterPosition();
-            $(window).resize(setFooterPosition);
-        });
-    </script>
 </head>
 <body>
     <main>
@@ -132,7 +114,5 @@ try {
         </div>
     </div>
 </nav>
-
-
 </header>
-</html>
+
