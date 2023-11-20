@@ -99,15 +99,10 @@ try {
 
 }
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Cadastro de produtos - TESTE</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
-<body>
+
 
 <?php include '../../includes/cabecalho.php' ?>
 
@@ -270,5 +265,3 @@ try {
         </main>
 
         <?php include '../../includes/rodape.php' ?>
-    </body>
-</html>
