@@ -48,8 +48,6 @@ try {
             $(window).resize(setFooterPosition);
         });
     </script>
-        
-    </style> 
 </head>
 <body>
     <main>
