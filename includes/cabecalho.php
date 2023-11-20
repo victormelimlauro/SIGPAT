@@ -42,7 +42,7 @@ try {
 
         @media (min-height: 100vh) {
             footer {
-                position: fixed;
+               
                 bottom: 0;
                 width: 100%;
             }
