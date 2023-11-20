@@ -3,7 +3,6 @@
         <title>Sistemas</title>
     </head>
     <?php include 'includes/cabecalho.php' ?>
-    <body>
         
         <main>
 
@@ -11,5 +10,5 @@
         </main>
 
         <?php include 'includes/rodape.php' ?>
-    </body>
+ 
 </html>
