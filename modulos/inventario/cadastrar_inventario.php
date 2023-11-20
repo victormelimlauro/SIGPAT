@@ -36,14 +36,13 @@ try {
     echo $e->getMessage();
 }
 ?>
-
-<html>
+    <?php include '../../includes/cabecalho.php' ?>
 <head>
     <title>Criar Inventário</title>
 </head>
-<body>
-    <?php include '../../includes/cabecalho.php' ?>
-    <main>
+
+
+    <main class="container">
         <h1>Criar Inventário</h1>
         <form method="post" action="cadastrar_inventario.php?salvar=true">
             <label>Nome do Inventário:</label>
@@ -52,5 +51,5 @@ try {
         </form>
     </main>
     <?php include '../../includes/rodape.php' ?>
-</body>
-</html>
+
+
