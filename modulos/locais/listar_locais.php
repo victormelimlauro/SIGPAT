@@ -26,7 +26,7 @@ try {
 
 <?php include '../../includes/cabecalho.php' ?>
 
-<main class="container">
+<div class="container">
     <h1 class="mb-4">Listar Locais</h1>
     <table class="table">
         <thead>
@@ -49,7 +49,7 @@ try {
             <?php endfor ?>
         </tbody>
     </table>
-</main>
+</div>
 
 <?php include '../../includes/rodape.php' ?>
 
