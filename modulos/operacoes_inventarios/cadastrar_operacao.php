@@ -240,5 +240,3 @@ try {
         </div>
     </div>
         <?php include '../../includes/rodape.php' ?>
-    </body>
-</html>
