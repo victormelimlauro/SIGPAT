@@ -11,13 +11,13 @@ try {
         case '/itens':
           //  include 'modulos/itens/lista_itens.php';
             echo "listar produtos";
-            include 'modulos\itens\lista_itens.php';
+            include 'modulos/itens/lista_itens.php';
         break;
 
         case 'itens':
             //  include 'modulos/itens/lista_itens.php';
               echo "listar ppprodutos";
-              include 'modulos\itens\lista_itens.php';
+              include 'modulos/itens/lista_itens.php';
           break;
 
         case "produto/salvar":
