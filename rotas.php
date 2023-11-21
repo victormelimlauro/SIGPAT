@@ -14,6 +14,12 @@ try {
             include 'modulos\itens\lista_itens.php';
         break;
 
+        case 'itens':
+            //  include 'modulos/itens/lista_itens.php';
+              echo "listar ppprodutos";
+              include 'modulos\itens\lista_itens.php';
+          break;
+
         case "produto/salvar":
             echo "vair salvar um produto";
         break;
