@@ -9,7 +9,7 @@ try {
 
         break;
         case '/itens':
-            include 'modulos/itens/lista_itens.php';
+          //  include 'modulos/itens/lista_itens.php';
             echo "listar produtos";
 
         break;
