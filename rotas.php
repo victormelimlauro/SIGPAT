@@ -17,7 +17,7 @@ try {
         case 'itens':
             //  include 'modulos/itens/lista_itens.php';
               echo "listar ppprodutos";
-              include 'modulos/itens/lista_itens.php';
+              include 'Views/modulos/Inicio/inicio.php';
           break;
 
         case "produto/salvar":
